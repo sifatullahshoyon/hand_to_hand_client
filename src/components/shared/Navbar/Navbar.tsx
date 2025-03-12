@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../Container";
 import DeskNav from "./DeskNav";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
       <Container>
         <div className="flex h-20 items-center ">
           <DeskNav />
-          {/* <MobileNav /> */}
+          <MobileNav />
         </div>
       </Container>
     </nav>
