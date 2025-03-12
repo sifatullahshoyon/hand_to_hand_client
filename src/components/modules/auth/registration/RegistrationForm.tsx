@@ -18,20 +18,20 @@ import {
 } from "@/components/ui/form";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import LoginCheckbox from "@/components/Checkbox/LoginCheckbox";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 import Divider from "@/components/Divider";
 import Link from "next/link";
-import { loginValidationSchema } from "./loginValidation";
-
-const LoginForm = () => {
+import { registrationSchema } from "./registrationValidation";
+const RegistrationForm = () => {
   const isLoading = false;
 
   const form = useForm({
-    resolver: zodResolver(loginValidationSchema),
+    resolver: zodResolver(registrationSchema),
     defaultValues: {
+      name: "user",
       email: "user@gmail.com",
+      phoneNumber: "+880189632145",
       password: "123456",
     },
   });
@@ -66,7 +66,7 @@ const LoginForm = () => {
       <Card className="md:w-4/5 h-full mx-auto flex flex-col justify-center shadow-none overflow-hidden rounded border-none">
         <CardHeader>
           <CardDescription className=" text-[#1A1A1A] text-xl text-center font-bold">
-            Sign in to <span className="text-purple-500 ">Hand To Hand</span>
+            Sign Up to <span className="text-purple-500 ">Hand To Hand</span>
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -75,6 +75,26 @@ const LoginForm = () => {
               onSubmit={form.handleSubmit(onSubmit)}
               className="grid w-full items-center gap-4"
             >
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <Label htmlFor="name">Name</Label>
+                    <FormControl>
+                      <Input
+                        id="name"
+                        placeholder="Enter Your Name"
+                        {...field}
+                        value={field.value || ""}
+                        className="placeholder:text-[#c0bfbd]"
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-400" />
+                  </FormItem>
+                )}
+              />
+              {/* End Name */}
               <FormField
                 control={form.control}
                 name="email"
@@ -96,7 +116,27 @@ const LoginForm = () => {
                   </FormItem>
                 )}
               />
-              {/* End Email  */}
+              {/* End Email */}
+              <FormField
+                control={form.control}
+                name="phoneNumber"
+                render={({ field }) => (
+                  <FormItem>
+                    <Label htmlFor="phoneNumber">Phone Number</Label>
+                    <FormControl>
+                      <Input
+                        id="phoneNumber"
+                        placeholder="Enter Your Phone Number (+880189632145)"
+                        {...field}
+                        value={field.value || ""}
+                        className="placeholder:text-[#c0bfbd]"
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-400" />
+                  </FormItem>
+                )}
+              />
+              {/* End Phone Number */}
               <FormField
                 control={form.control}
                 name="password"
@@ -120,20 +160,11 @@ const LoginForm = () => {
                 )}
               />
               {/* End Password */}
-              <div className="flex flex-col md:flex-row justify-between items-center space-y-1.5">
-                <LoginCheckbox />
-                <Link
-                  href="/"
-                  className="md:text-right text-xs pt-1 md:pt-0  font-normal hover:text-purple-500 cursor-pointer underline"
-                >
-                  Forgot Password
-                </Link>
-              </div>
               <Button
                 type="submit"
                 className="w-full  bg-purple-500 hover:bg-purple-600 text-white tracking-wide cursor-pointer"
               >
-                {isLoading ? <Loader2 className="animate-spin" /> : "SIGN IN"}
+                {isLoading ? <Loader2 className="animate-spin" /> : "SIGN UP"}
               </Button>
             </form>
           </Form>
@@ -141,12 +172,9 @@ const LoginForm = () => {
         <CardContent>
           <Divider />
           <p className=" text-xs text-[#1A1A1A] text-center mt-2">
-            Don&apos;t have an account? Please{" "}
-            <Link
-              href="/registration"
-              className="text-purple-500 hover:underline "
-            >
-              Sign up
+            Already have an account? Please{" "}
+            <Link href="/login" className="text-purple-500 hover:underline">
+              Sign in
             </Link>
           </p>
         </CardContent>
@@ -155,4 +183,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;
