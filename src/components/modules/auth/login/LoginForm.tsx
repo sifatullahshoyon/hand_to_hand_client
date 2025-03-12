@@ -1,5 +1,4 @@
 "use client";
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -24,40 +23,35 @@ import { Loader2 } from "lucide-react";
 import Divider from "@/components/Divider";
 import Link from "next/link";
 import { loginValidationSchema } from "./loginValidation";
+import { loginUser } from "@/services/authService";
 
 const LoginForm = () => {
-  const isLoading = false;
-
+  // form validation
   const form = useForm({
     resolver: zodResolver(loginValidationSchema),
     defaultValues: {
-      email: "user@gmail.com",
-      password: "123456",
+      email: "testuser@gmail.com",
+      password: "12345678",
     },
   });
 
+  // Destructure form value
+  const {
+    formState: { isSubmitting },
+  } = form;
+
+  // submit handler function
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    // const toastId = toast.loading("logging in...");
     try {
-      const userInfo = {
-        email: data.email,
-        password: data.password,
-      };
+      const res = await loginUser(data);
 
-      console.log(userInfo);
-
-      // const res = await login(userInfo).unwrap();
-
-      // const user = verifyToken(res.token);
-
-      // dispatch(setUser({ user: res.data, token: res.token }));
-      // toast.success("Login successfully", { id: toastId, duration: 2000 });
-      toast.success("Login Successfully.");
-
-      // Navigate("/");
+      if (res?.status === true) {
+        toast.success(res?.message);
+      } else {
+        toast.error(res?.message);
+      }
     } catch (error: any) {
       console.error(error);
-      toast.error("something went wrong");
     }
   };
 
@@ -133,7 +127,11 @@ const LoginForm = () => {
                 type="submit"
                 className="w-full  bg-purple-500 hover:bg-purple-600 text-white tracking-wide cursor-pointer"
               >
-                {isLoading ? <Loader2 className="animate-spin" /> : "SIGN IN"}
+                {isSubmitting ? (
+                  <Loader2 className="animate-spin" />
+                ) : (
+                  "SIGN IN"
+                )}
               </Button>
             </form>
           </Form>
