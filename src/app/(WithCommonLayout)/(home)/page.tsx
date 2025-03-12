@@ -1,9 +1,10 @@
+import HeroSection from "@/components/modules/Home/HeroSection";
 import React from "react";
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome to hand to hand Home Page</h1>
+      <HeroSection />
     </div>
   );
 };
