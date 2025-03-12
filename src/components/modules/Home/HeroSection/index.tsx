@@ -6,7 +6,7 @@ import { Search } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <div className={`${styles.banner} mb-5`}>
+    <div className={`${styles.banner}`}>
       <Container>
         <div className="flex flex-col justify-center items-center h-screen">
           <h1 className="text-2xl md:text-6xl font-bold text-white leading-[1.2] tracking-wide text-center mb-11 text-balance">
