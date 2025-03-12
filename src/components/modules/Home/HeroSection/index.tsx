@@ -9,7 +9,7 @@ const HeroSection = () => {
     <div className={`${styles.banner}`}>
       <Container>
         <div className="flex flex-col justify-center items-center h-screen">
-          <h1 className="text-2xl md:text-6xl font-bold text-white leading-[1.2] tracking-wide text-center mb-11 text-balance">
+          <h1 className="text-[40px] md:text-6xl font-bold text-white leading-[1.2] tracking-wide text-center mb-11 text-balance">
             One Marketplace,
             <span className="">Endless Possibilities</span>
             <br />
@@ -23,7 +23,7 @@ const HeroSection = () => {
             <Input
               type="text"
               placeholder="Search To Buy..."
-              className=" outline-none border-none bg-white focus:ring-2 py-6 pl-10 placeholder:text-#b8afaf]"
+              className="bg-white focus:ring-2 focus:ring-purple-500  py-6 pl-10 placeholder:text-#b8afaf]"
             />
             <Search className="absolute top-1/2 left-4 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-[#b8afaf]" />
           </div>
