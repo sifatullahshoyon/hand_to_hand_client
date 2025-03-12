@@ -108,7 +108,7 @@ const LoginForm = () => {
                     <FormControl>
                       <Input
                         id="password"
-                        type="text"
+                        type="password"
                         placeholder="Enter Your Password"
                         {...field}
                         value={field.value || ""}
