@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
+import Providers from "@/providers/Providers";
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -16,11 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={lato.className}>
-        <Toaster position="top-center" />
-        {children}
-      </body>
-    </html>
+    <Providers>
+      <html lang="en">
+        <body className={lato.className}>
+          <Toaster richColors position="top-center" />
+          {children}
+        </body>
+      </html>
+    </Providers>
   );
 }

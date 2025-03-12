@@ -35,7 +35,6 @@ export const loginUser = async (userData: FieldValues) => {
 
     const result = await res.json();
 
-    console.log(result);
     // set token in cookies
     if (result?.status === true) {
       const storeCookies = await cookies();
