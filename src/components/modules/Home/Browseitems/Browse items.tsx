@@ -31,10 +31,10 @@ const items = [
 
 const BrowseItems = () => {
   return (
-    <div className="my-16">
+    <div className="mt-16">
       <Container>
         <SectionTitle title="Browse items by category" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
           {items.map((item, index) => (
             <div
               key={index}
