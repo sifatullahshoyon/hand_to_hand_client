@@ -24,6 +24,7 @@ import Divider from "@/components/Divider";
 import Link from "next/link";
 import { loginValidationSchema } from "./loginValidation";
 import { loginUser } from "@/services/authService";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const LoginForm = () => {
   // form validation
@@ -34,6 +35,11 @@ const LoginForm = () => {
       password: "12345678",
     },
   });
+
+  // for redirect
+  const searchParams = useSearchParams();
+  const redirect = searchParams.get("redirectPath");
+  const router = useRouter();
 
   // Destructure form value
   const {
@@ -47,6 +53,12 @@ const LoginForm = () => {
 
       if (res?.status === true) {
         toast.success(res?.message);
+        // redirect
+        if (redirect) {
+          router.push(redirect);
+        } else {
+          router.push("/profile");
+        }
       } else {
         toast.error(res?.message);
       }
