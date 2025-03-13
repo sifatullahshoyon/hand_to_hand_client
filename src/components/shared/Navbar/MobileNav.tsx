@@ -44,7 +44,13 @@ const MobileNav = () => {
         {/* logo */}
         <div className="my-6">
           <Link href="/" className="flex justify-start items-center gap-2">
-            <Image src={logo} alt="logo" width={60} />
+            <Image
+              src={logo}
+              alt="logo"
+              width={60}
+              placeholder="blur"
+              loading="lazy"
+            />
             <p className="text-white text-lg">Hand to Hand</p>
           </Link>
         </div>
@@ -59,7 +65,9 @@ const MobileNav = () => {
                   setOpen(false);
                 }}
               >
-                <p className="py-2 font-leto text-white">{item.element}</p>
+                <p className="py-2 font-leto text-white tracking-wide">
+                  {item.element}
+                </p>
               </Link>
             </div>
           ))}
@@ -91,7 +99,7 @@ const navItems = [
     element: "All Product",
   },
   {
-    path: "/dashboard",
-    element: "Dashboard",
+    path: "/about-us",
+    element: "About Us",
   },
 ];
