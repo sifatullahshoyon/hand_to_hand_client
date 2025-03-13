@@ -1,5 +1,4 @@
 import Container from "@/components/shared/Container";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import job from "@/app/assets/img/icon/briefcase.png";
 import car from "@/app/assets/img/icon/car-wash.png";
@@ -13,6 +12,7 @@ import football from "@/app/assets/img/icon/football.png";
 import tTshirt from "@/app/assets/img/icon/design.png";
 import eduction from "@/app/assets/img/icon/mortarboard.png";
 import service from "@/app/assets/img/icon/service.png";
+import SectionTitle from "@/components/shared/SectionTitle";
 
 const items = [
   { title: "Mobiles", info: "78,463 ads", img: phone },
@@ -33,35 +33,26 @@ const BrowseItems = () => {
   return (
     <div className="my-16">
       <Container>
-        <>
-          <div className="flex items-center justify-between mb-6 px-2">
-            <h2 className="text-2xl font-bold text-[#1A1A1A] text-balance">
-              Browse items by category
-            </h2>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-              View All
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-row justify-start items-center gap-4 space-y-6"
-              >
-                <div className="mt-5">
-                  <Image src={item.img} alt="job icon" width={40} />
-                </div>
-                {/* info */}
-                <div className="flex flex-col space-y-1 text-[#1A1A1A]">
-                  <h6 className="font-semibold mb-1 tracking-wide text-balance text-lg">
-                    {item.title}
-                  </h6>
-                  <p className="text-sm">{item.info}</p>
-                </div>
+        <SectionTitle title="Browse items by category" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-row justify-start items-center gap-4 space-y-6"
+            >
+              <div className="mt-5">
+                <Image src={item.img} alt="job icon" width={40} />
               </div>
-            ))}
-          </div>
-        </>
+              {/* info */}
+              <div className="flex flex-col space-y-1 text-[#1A1A1A]">
+                <h6 className="font-semibold mb-1 tracking-wide text-balance text-lg">
+                  {item.title}
+                </h6>
+                <p className="text-sm">{item.info}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </Container>
     </div>
   );

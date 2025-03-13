@@ -36,11 +36,11 @@ const AboutUsPage = () => {
             <h1 className="text-3xl text-[#1A1A1A] font-bold">
               About <span className="text-purple-500">Hand to Hand</span>
             </h1>
-            <p className="py-6 text-balance text-base text-gray-600 tracking-wide">
+            <p className="py-6 text-balance text-base text-gray-600 tracking-wide leading-relaxed">
               Hand to Hand is Bangladesh&apos;s largest online multi opt buying
               and <br /> selling marketplace.
             </p>
-            <p className="pb-6 text-balance text-base text-gray-600 tracking-wide text-justify">
+            <p className="pb-6 text-balance text-base text-gray-600 tracking-wide text-justify leading-relaxed">
               It will provide their customers a powerful platform where they can
               purchase new and sell second hand products. Customers can switch
               easily between their options and will choose to it, same goes for
