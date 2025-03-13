@@ -8,10 +8,10 @@ import {
   Command,
   Frame,
   GalleryVerticalEnd,
+  Heart,
+  House,
   Map,
   PieChart,
-  Settings2,
-  SquareTerminal,
 } from "lucide-react";
 
 import {
@@ -21,10 +21,11 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { TeamSwitcher } from "./team-switcher";
 import { NavMain } from "./nav-main";
-import { NavProjects } from "./nav-projects";
 import { NavUser } from "./nav-user";
+import logo from "../../../../app/assets/img/logo-one.png";
+import Image from "next/image";
+import Link from "next/link";
 
 // This is sample data.
 const data = {
@@ -52,27 +53,13 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
+      title: "Home",
+      url: "/",
+      icon: House,
+      isActive: false,
     },
     {
-      title: "Models",
+      title: "Mange Item",
       url: "#",
       icon: Bot,
       items: [
@@ -91,7 +78,7 @@ const data = {
       ],
     },
     {
-      title: "Documentation",
+      title: "Manage Listings",
       url: "#",
       icon: BookOpen,
       items: [
@@ -114,9 +101,9 @@ const data = {
       ],
     },
     {
-      title: "Settings",
+      title: "Wishlist",
       url: "#",
-      icon: Settings2,
+      icon: Heart,
       items: [
         {
           title: "General",
@@ -160,12 +147,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader className="bg-gray-200">
-        <TeamSwitcher teams={data.teams} />
+        <Link
+          href="/"
+          className="flex flex-wrap justify-center items-center gap-2"
+        >
+          <Image src={logo} alt="logo" placeholder="blur" width={50} />
+          <p className="text-[#1A1A1A] font-bold text-lg text-balance">
+            Hand to Hand
+          </p>
+        </Link>
       </SidebarHeader>
+      {/* Header End */}
       <SidebarContent className="bg-gray-200">
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
       </SidebarContent>
+      {/* End Side bar Content */}
       <SidebarFooter className="bg-gray-200">
         <NavUser user={data.user} />
       </SidebarFooter>
