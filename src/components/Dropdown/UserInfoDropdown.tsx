@@ -23,18 +23,25 @@ import { toast } from "sonner";
 import Link from "next/link";
 import { logout } from "@/services/authService";
 import { useUser } from "@/context/UserContext";
+import { usePathname, useRouter } from "next/navigation";
+import { protectedRoutes } from "@/constants";
 
 const UserInfoDropdown = () => {
-  const { user, loading, setLoading } = useUser();
-
-  if (loading) {
-    <p>loading...</p>;
-  }
+  const { user, setLoading } = useUser();
+  // redirect
+  const pathname = usePathname();
+  const router = useRouter();
 
   const handleLogout = () => {
     logout();
     setLoading(true);
+    // tost
     toast.success("Logout Successfully.");
+
+    // jodi user logout obusthay private route a thake tahle take redirect kore home page a niye jabe
+    if (protectedRoutes.some((route) => pathname.match(route))) {
+      router.push("/login");
+    }
   };
   return (
     <div>

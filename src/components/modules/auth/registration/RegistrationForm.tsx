@@ -23,6 +23,7 @@ import Divider from "@/components/Divider";
 import Link from "next/link";
 import { registrationSchema } from "./registrationValidation";
 import { registerUser } from "@/services/authService";
+import { useRouter } from "next/navigation";
 const RegistrationForm = () => {
   // form validation
   const form = useForm({
@@ -41,6 +42,9 @@ const RegistrationForm = () => {
     formState: { isSubmitting },
   } = form;
 
+  // for redirect
+  const router = useRouter();
+
   // password match
   const password = form.watch("password");
 
@@ -55,6 +59,8 @@ const RegistrationForm = () => {
 
       if (res?.status === true) {
         toast.success(res?.message);
+        // redirect
+        router.push("/login");
       } else {
         toast.error(res?.message);
       }
