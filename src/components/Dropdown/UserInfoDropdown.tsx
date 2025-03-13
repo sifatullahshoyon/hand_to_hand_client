@@ -4,6 +4,7 @@ import {
   Heart,
   LogIn,
   LogOut,
+  PanelsTopLeft,
   ShoppingCart,
   User,
   UserRound,
@@ -20,15 +21,19 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { toast } from "sonner";
 import Link from "next/link";
+import { logout } from "@/services/authService";
+import { useUser } from "@/context/UserContext";
 
 const UserInfoDropdown = () => {
-  const user = false;
-  //     const user = useAppSelector(useCurrentUser);
+  const { user, loading, setLoading } = useUser();
 
-  //   const dispatch = useAppDispatch();
+  if (loading) {
+    <p>loading...</p>;
+  }
 
   const handleLogout = () => {
-    //   dispatch(logout());
+    logout();
+    setLoading(true);
     toast.success("Logout Successfully.");
   };
   return (
@@ -43,10 +48,12 @@ const UserInfoDropdown = () => {
           <DropdownMenuSeparator />
           {/* my profile start */}
           <DropdownMenuGroup>
-            <DropdownMenuItem className="group cursor-pointer">
-              <User className="group-hover:text-[#EF6291]" />
-              <span className="group-hover:text-[#EF6291]">Profile</span>
-            </DropdownMenuItem>
+            {user && (
+              <DropdownMenuItem className="group cursor-pointer">
+                <User className="group-hover:text-[#EF6291]" />
+                <span className="group-hover:text-[#EF6291]">Profile</span>
+              </DropdownMenuItem>
+            )}
             {!user && (
               <Link href="/login">
                 <DropdownMenuItem className="group cursor-pointer">
@@ -64,16 +71,30 @@ const UserInfoDropdown = () => {
               <Heart className="group-hover:text-[#EF6291]" />
               <span className="group-hover:text-[#EF6291]">Wish List (0)</span>
             </DropdownMenuItem>
-
-            <DropdownMenuItem className="group cursor-pointer">
-              <ShoppingCart className="group-hover:text-[#EF6291]" />
-              <span className="group-hover:text-[#EF6291]">Shopping Cart</span>
-            </DropdownMenuItem>
-
-            <DropdownMenuItem className="group cursor-pointer">
-              <CreditCard className="group-hover:text-[#EF6291]" />
-              <span className="group-hover:text-[#EF6291]">Checkout</span>
-            </DropdownMenuItem>
+            {/* End Wish List */}
+            {user && (
+              <DropdownMenuItem className="group cursor-pointer">
+                <ShoppingCart className="group-hover:text-[#EF6291]" />
+                <span className="group-hover:text-[#EF6291]">
+                  Shopping Cart
+                </span>
+              </DropdownMenuItem>
+            )}
+            {/* End Shopping Cart */}
+            {user && (
+              <DropdownMenuItem className="group cursor-pointer">
+                <PanelsTopLeft className="group-hover:text-[#EF6291]" />
+                <span className="group-hover:text-[#EF6291]">Dashboard</span>
+              </DropdownMenuItem>
+            )}
+            {/* End Dashboard */}
+            {user && (
+              <DropdownMenuItem className="group cursor-pointer">
+                <CreditCard className="group-hover:text-[#EF6291]" />
+                <span className="group-hover:text-[#EF6291]">Checkout</span>
+              </DropdownMenuItem>
+            )}
+            {/* End Checkout */}
           </DropdownMenuGroup>
           {/* End cart  */}
           <DropdownMenuSeparator />

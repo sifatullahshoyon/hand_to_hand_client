@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import Navcart from "./Navcart";
-import logo from "@/app/assets/img/logo.png";
+import logo from "@/app/assets/img/logo-one.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 

@@ -1,7 +1,6 @@
 import Container from "../Container";
-import logo from "@/app/assets/img/logo.png";
+import logo from "@/app/assets/img/logo-one.png";
 import { Input } from "@/components/ui/input";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Linkedin, Youtube } from "lucide-react";

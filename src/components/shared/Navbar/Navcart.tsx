@@ -43,17 +43,17 @@ const Navcart = () => {
   return (
     <div className="md:flex justify-between items-center gap-4 space-y-6 md:space-y-0">
       {/* Auth Options */}
-      <div className="relative">
+      <div className="relative cursor-pointer">
         <TooltipTitle element={heartIcon} content="Wish List"></TooltipTitle>
         <Badge className="absolute -top-4 left-3 bg-[#1A1A1A] text-white">
           0
         </Badge>
       </div>
-      <div>
+      <div className="cursor-pointer">
         <UserInfoDropdown />
       </div>
       {/* shopping cart */}
-      <div className="relative">
+      <div className="relative cursor-pointer">
         <TooltipTitle
           element={shoppingCartIcon}
           content="shopping Cart"

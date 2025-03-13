@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="flex flex-col justify-center items-center h-screen">
           <h1 className="text-[40px] md:text-6xl font-bold text-white leading-[1.2] tracking-wide text-center mb-11 text-balance">
             One Marketplace,
-            <span className="">Endless Possibilities</span>
+            <span className=""> Endless Possibilities</span>
             <br />
             Shop{" "}
             <span className="text-purple-500 font-extrabold">
