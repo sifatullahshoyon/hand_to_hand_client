@@ -3,6 +3,10 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import Providers from "@/providers/Providers";
+// import Swiper and modules styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const lato = Lato({ subsets: ["latin"], weight: ["400", "700"] });
 
