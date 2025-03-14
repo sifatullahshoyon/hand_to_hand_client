@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import ProductFilter from "./ProductFilter/ProductFilter";
 import { FilterIcon } from "lucide-react";
+import ProductSortingByPrice from "./ProductSortingByPrice";
+import { smartphonesData } from "../Home/Smartphone/Smartphone ";
+import ProductCart from "@/components/shared/Carts/ProductCart";
 
 const Products = () => {
   return (
@@ -38,7 +41,7 @@ const Products = () => {
           </div>
           {/* End search functionality */}
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-8 gap-6">
             {/* start filter with btn section */}
             <div className="col-span-2 bg-gray-50 shadow-xl rounded p-6">
               <div className="flex flex-row justify-between items-center flex-wrap gap-2 space-y-2 lg:space-y-0 mb-6">
@@ -60,8 +63,23 @@ const Products = () => {
             {/* End filter section */}
 
             {/* start Product section */}
-            <div className="col-span-4 border-b-blue-700 border p-6">
-              <p className="font-bold text-xl text-[#1A1A1A]">150 Products</p>
+            <div className="col-span-6  p-6">
+              <div className="flex justify-between items-center gap-2 flex-wrap mb-6">
+                <p className="font-bold text-xl text-[#1A1A1A] tracking-wide">
+                  150 Products
+                </p>
+                <ProductSortingByPrice />
+              </div>
+              {/* End total product & product options */}
+
+              {/* start product cart */}
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
+                {/* Product Cards */}
+                {smartphonesData?.map((item, index) => (
+                  <ProductCart key={index} item={item} />
+                ))}
+              </div>
             </div>
             {/* End Product section */}
           </div>

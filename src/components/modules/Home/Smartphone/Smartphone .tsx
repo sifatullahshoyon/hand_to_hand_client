@@ -4,7 +4,7 @@ import SectionTitle from "@/components/shared/SectionTitle";
 import Link from "next/link";
 import React from "react";
 
-const smartphonesData = [
+export const smartphonesData = [
   {
     name: "iPhone 13",
     price: "48,000",
@@ -62,9 +62,9 @@ const Smartphone = () => {
     <div className="mt-16">
       <Container>
         <SectionTitle title="Smartphone Hot Collection" />
+        {/* End Section Title */}
         <Link href="/products">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 pb-6">
-            {/* Product Cards */}
             {smartphonesData.map((item, index) => (
               <ProductCart key={index} item={item} />
             ))}
