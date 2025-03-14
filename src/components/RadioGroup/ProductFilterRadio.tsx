@@ -37,7 +37,7 @@ const ProductFilterRadio = () => {
           name="type"
           render={({ field }) => (
             <FormItem className="space-y-4 font-roboto">
-              <FormLabel className="text-lg">Availability</FormLabel>
+              <FormLabel className="text-lg font-bold">Availability</FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
