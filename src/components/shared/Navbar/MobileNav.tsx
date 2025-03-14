@@ -95,7 +95,7 @@ const navItems = [
     element: "Home",
   },
   {
-    path: "/all-products",
+    path: "/products",
     element: "All Product",
   },
   {
