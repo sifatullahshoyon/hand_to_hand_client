@@ -20,7 +20,7 @@ const Checkout = () => {
       {/* End Item Banner Img */}
       <div className="my-16 p-2">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 border">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
             {/* checkout form */}
             <div>
               <CheckoutForm />

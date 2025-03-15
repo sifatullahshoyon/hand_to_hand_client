@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -7,12 +8,18 @@ import {
 } from "@/components/ui/card";
 import { BadgeCheck, Minus, Plus, Trash2, Truck } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const PaymentCart = () => {
+  const pathName = usePathname();
   return (
     <>
-      <Card className="flex lg:flex-row justify-between gap-6 rounded bg-gray-50 px-4 py-6  mx-auto border-none shadow-lg">
+      <Card
+        className={`"flex lg:flex-row justify-between gap-6  px-4 py-6  mx-auto border-none bg-gray-50 ${
+          pathName === "/cart" && "shadow-lg rounded "
+        }"`}
+      >
         <div className="w-full lg:w-[25%] p-2">
           <Image
             src="https://d3qqewlrl1nyfn.cloudfront.net/product/16851654191184568877.webp"
@@ -51,21 +58,23 @@ const PaymentCart = () => {
                 Price : <span className="text-[#1A1A1A]">$50</span>
               </p>
               {/* start product quantity option */}
-              <div className="flex items-center gap-2">
-                <p className="text-neutral-500">
-                  <Trash2 size={18} className="text-rose-400" />
-                </p>
+              {pathName === "/cart" && (
                 <div className="flex items-center gap-2">
-                  <Button>
-                    {" "}
-                    <Minus />{" "}
-                  </Button>
-                  <span>2</span>
-                  <Button>
-                    <Plus />
-                  </Button>
+                  <p className="text-neutral-500">
+                    <Trash2 size={18} className="text-rose-400" />
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <Button>
+                      {" "}
+                      <Minus />{" "}
+                    </Button>
+                    <span>2</span>
+                    <Button>
+                      <Plus />
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              )}
               {/* end product quantity option */}
             </div>
             {/* end Free Delivery */}
