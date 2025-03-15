@@ -15,24 +15,32 @@ import {
 
 const items = [
   {
-    id: "writing",
-    label: "Writing",
+    id: "mobiles",
+    label: "Mobiles",
   },
   {
-    id: "officeSupplies",
-    label: "Office Supplies",
+    id: "electronics",
+    label: "Electronics",
   },
   {
-    id: "artSupplies",
-    label: "Art Supplies",
+    id: "vehicles",
+    label: "Vehicles",
   },
   {
-    id: "educational",
-    label: "Educational",
+    id: "homeAndLiving",
+    label: "Home & Living",
   },
   {
-    id: "technology",
-    label: "Technology",
+    id: "womensFashion",
+    label: "Women's Fashion",
+  },
+  {
+    id: "MensFashion",
+    label: "Men's Fashion",
+  },
+  {
+    id: "hobbiesAndSports",
+    label: "Hobbies & Sports",
   },
 ] as const;
 

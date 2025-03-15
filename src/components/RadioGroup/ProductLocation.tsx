@@ -43,7 +43,7 @@ const ProductLocation = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="w-2/3 space-y-6 my-4"
+        className="w-2/3 space-y-2 my-4"
       >
         <FormField
           control={form.control}
@@ -55,14 +55,14 @@ const ProductLocation = () => {
                 <RadioGroup
                   onValueChange={field.onChange}
                   value={field.value}
-                  className="flex flex-col space-y-1"
+                  className="flex flex-col space-y-0.5"
                 >
                   {locations.map((loc) => (
                     <FormItem
                       key={loc.value}
                       className="flex items-center space-x-3"
                     >
-                      <FormControl>
+                      <FormControl className="">
                         <RadioGroupItem value={loc.value} />
                       </FormControl>
                       <FormLabel className="font-normal">{loc.label}</FormLabel>
