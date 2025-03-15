@@ -11,7 +11,7 @@ import ProductCart from "@/components/shared/Carts/ProductCart";
 
 const Products = () => {
   return (
-    <div>
+    <>
       <div className={`${styles.banner}`}>
         <div className="flex flex-col justify-center items-center h-[300px]">
           <h1 className="font-bold text-white text-4xl tracking-wide text-center pb-4">
@@ -87,7 +87,7 @@ const Products = () => {
       </div>
 
       {/* End Item Section */}
-    </div>
+    </>
   );
 };
 
