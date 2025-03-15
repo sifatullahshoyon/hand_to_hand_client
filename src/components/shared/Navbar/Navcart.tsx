@@ -2,6 +2,7 @@ import React from "react";
 import { Badge } from "@/components/ui/badge";
 import UserInfoDropdown from "@/components/Dropdown/UserInfoDropdown";
 import TooltipTitle from "../Tooltip/TooltipTitle";
+import Link from "next/link";
 
 const heartIcon = (
   <svg
@@ -53,7 +54,7 @@ const Navcart = () => {
         <UserInfoDropdown />
       </div>
       {/* shopping cart */}
-      <div className="relative cursor-pointer">
+      <Link href="/cart" className="relative cursor-pointer">
         <TooltipTitle
           element={shoppingCartIcon}
           content="shopping Cart"
@@ -61,7 +62,7 @@ const Navcart = () => {
         <Badge className="absolute -top-4 left-3 bg-[#1A1A1A] text-white">
           0
         </Badge>
-      </div>
+      </Link>
     </div>
   );
 };

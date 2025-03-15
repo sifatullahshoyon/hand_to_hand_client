@@ -9,7 +9,7 @@ const authRoute = ["/login", "/register"];
 
 // role base route
 const roleBasedPrivateRoutes = {
-  user: [/^\/user/],
+  user: [/^\/user/, /^\/cart/, "/checkout"],
   admin: [/^\/admin/],
 };
 
@@ -50,5 +50,13 @@ export const middleware = async (request: NextRequest) => {
 
 // private route
 export const config = {
-  matcher: ["/login", "/user", "/user:page", "/admin", "/admin/:page"],
+  matcher: [
+    "/login",
+    "/cart",
+    "/checkout",
+    "/user",
+    "/user:page",
+    "/admin",
+    "/admin/:page",
+  ],
 };

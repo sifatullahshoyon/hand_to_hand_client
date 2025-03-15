@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { BadgeCheck, Minus, Plus, Star, Store, Truck } from "lucide-react";
-// import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -92,12 +91,12 @@ const ProductDetailsCart = () => {
             {/* End Quantity */}
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
-            <Link href="/" className="w-full">
+            <Link href="/cart" className="w-full">
               <Button className="text-[#1A1A1A] border-neutral-300 border hover:border-purple-500 hover:border-2 w-full font-medium text-base tracking-wide cursor-pointer transition-all rounded-2xl">
                 Add to cart
               </Button>
             </Link>
-            <Link href="/" className="w-full">
+            <Link href="/checkout" className="w-full">
               <Button className="bg-purple-500 hover:bg-purple-600 text-white w-full font-medium text-base tracking-wide cursor-pointer transition-all rounded-2xl">
                 Buy Now
               </Button>

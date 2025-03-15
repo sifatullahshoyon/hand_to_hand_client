@@ -80,12 +80,14 @@ const UserInfoDropdown = () => {
             </DropdownMenuItem>
             {/* End Wish List */}
             {user && (
-              <DropdownMenuItem className="group cursor-pointer">
-                <ShoppingCart className="group-hover:text-[#EF6291]" />
-                <span className="group-hover:text-[#EF6291]">
-                  Shopping Cart
-                </span>
-              </DropdownMenuItem>
+              <Link href="/cart">
+                <DropdownMenuItem className="group cursor-pointer">
+                  <ShoppingCart className="group-hover:text-[#EF6291]" />
+                  <span className="group-hover:text-[#EF6291]">
+                    Shopping Cart
+                  </span>
+                </DropdownMenuItem>
+              </Link>
             )}
             {/* End Shopping Cart */}
             {user && (
@@ -96,10 +98,12 @@ const UserInfoDropdown = () => {
             )}
             {/* End Dashboard */}
             {user && (
-              <DropdownMenuItem className="group cursor-pointer">
-                <CreditCard className="group-hover:text-[#EF6291]" />
-                <span className="group-hover:text-[#EF6291]">Checkout</span>
-              </DropdownMenuItem>
+              <Link href="/checkout">
+                <DropdownMenuItem className="group cursor-pointer">
+                  <CreditCard className="group-hover:text-[#EF6291]" />
+                  <span className="group-hover:text-[#EF6291]">Checkout</span>
+                </DropdownMenuItem>
+              </Link>
             )}
             {/* End Checkout */}
           </DropdownMenuGroup>
