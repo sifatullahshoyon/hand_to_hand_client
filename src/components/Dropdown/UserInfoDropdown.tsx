@@ -91,10 +91,12 @@ const UserInfoDropdown = () => {
             )}
             {/* End Shopping Cart */}
             {user && (
-              <DropdownMenuItem className="group cursor-pointer">
-                <PanelsTopLeft className="group-hover:text-[#EF6291]" />
-                <span className="group-hover:text-[#EF6291]">Dashboard</span>
-              </DropdownMenuItem>
+              <Link href="/user/dashboard">
+                <DropdownMenuItem className="group cursor-pointer">
+                  <PanelsTopLeft className="group-hover:text-[#EF6291]" />
+                  <span className="group-hover:text-[#EF6291]">Dashboard</span>
+                </DropdownMenuItem>
+              </Link>
             )}
             {/* End Dashboard */}
             {user && (

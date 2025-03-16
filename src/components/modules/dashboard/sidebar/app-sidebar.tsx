@@ -10,6 +10,7 @@ import {
   GalleryVerticalEnd,
   Heart,
   House,
+  LayoutDashboard,
   Map,
   PieChart,
 } from "lucide-react";
@@ -59,7 +60,13 @@ const data = {
       isActive: false,
     },
     {
-      title: "Mange Item",
+      title: "Dashboard Home",
+      url: "/user/dashboard",
+      icon: LayoutDashboard,
+      isActive: false,
+    },
+    {
+      title: "Listings",
       url: "#",
       icon: Bot,
       items: [
@@ -79,7 +86,7 @@ const data = {
     },
     {
       title: "Manage Listings",
-      url: "#",
+      url: "/user/listings",
       icon: BookOpen,
       items: [
         {
@@ -146,11 +153,8 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="bg-gray-200">
-        <Link
-          href="/"
-          className="flex flex-wrap justify-center items-center gap-2"
-        >
+      <SidebarHeader>
+        <Link href="/" className="flex flex-wrap justify-center items-center ">
           <Image src={logo} alt="logo" placeholder="blur" width={50} />
           <p className="text-[#1A1A1A] font-bold text-lg text-balance">
             Hand to Hand
@@ -158,11 +162,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </Link>
       </SidebarHeader>
       {/* Header End */}
-      <SidebarContent className="bg-gray-200">
+      <SidebarContent>
         <NavMain items={data.navMain} />
       </SidebarContent>
       {/* End Side bar Content */}
-      <SidebarFooter className="bg-gray-200">
+      <SidebarFooter>
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />
