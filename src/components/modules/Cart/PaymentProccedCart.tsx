@@ -1,22 +1,15 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
+
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+
 import React from "react";
 
 const PaymentProccedCart = () => {
-  const pathName = usePathname();
   return (
     <>
-      <Card
-        className={`${
-          pathName === "/cart" ? "border-none shadow " : "bg-gray-50"
-        } border-none `}
-      >
-        {pathName === "/cart" && (
-          <CardTitle className="pl-4 text-xl">Payment Details</CardTitle>
-        )}
+      <Card className="border-none shadow">
+        <CardTitle className="pl-4 text-xl">Payment Details</CardTitle>
         <CardContent>
           <div className="flex justify-between gap-2 mb-3">
             <p className="text-neutral-500">Subtotal</p>

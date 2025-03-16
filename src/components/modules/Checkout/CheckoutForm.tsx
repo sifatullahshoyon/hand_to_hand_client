@@ -1,6 +1,5 @@
 "use client";
 import { Card, CardContent } from "@/components/ui/card";
-import React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -14,6 +13,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { z } from "zod";
+
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 
@@ -75,12 +75,12 @@ const CheckoutForm = () => {
   };
   return (
     <div>
-      <Card className="md:w-4/5 h-full mx-auto flex flex-col justify-center shadow overflow-hidden rounded border-none">
+      <Card className="md:w-4/5 h-full mx-auto flex flex-col justify-center shadow-lg overflow-hidden rounded border-none">
         <CardContent>
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="grid w-full items-center gap-4"
+              className="grid w-full items-center gap-4 "
             >
               <FormField
                 control={form.control}
@@ -173,7 +173,7 @@ const CheckoutForm = () => {
                 {isSubmitting ? (
                   <Loader2 className="animate-spin" />
                 ) : (
-                  "SIGN IN"
+                  "Continue To Pay"
                 )}
               </Button>
             </form>

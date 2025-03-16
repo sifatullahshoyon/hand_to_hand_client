@@ -2,7 +2,6 @@ import React from "react";
 import styles from "../Products/Products.module.css";
 import Container from "@/components/shared/Container";
 import CheckoutForm from "./CheckoutForm";
-import CheckoutOrderCart from "@/components/shared/Carts/CheckoutOrderCart";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -20,19 +19,15 @@ const Checkout = () => {
       {/* End Item Banner Img */}
       <div className="my-16 p-2">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-            {/* checkout form */}
-            <div>
-              <CheckoutForm />
-              <Link
-                href="/cart"
-                className="flex items-center gap-2 mt-6 ml-16 mb-2 text-purple-500"
-              >
-                <ArrowLeft size={18} /> Return Cart
-              </Link>
-            </div>
-            {/* Order information */}
-            <CheckoutOrderCart />
+          {/* checkout form */}
+          <div className="w-[98%] md:w-[80%] lg:w-[50%] mx-auto">
+            <CheckoutForm />
+            <Link
+              href="/cart"
+              className="flex items-center gap-2 mt-6 ml-16 mb-2 text-purple-500"
+            >
+              <ArrowLeft size={18} /> Return Cart
+            </Link>
           </div>
         </Container>
       </div>
