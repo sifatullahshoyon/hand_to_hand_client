@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
-import logo from "../../../../app/assets/img/logo-one.png";
+import logo from "../../../../app/assets/img/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
