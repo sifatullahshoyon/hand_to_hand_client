@@ -10,26 +10,11 @@ type TListingsProps = {
 };
 
 const Listing = ({ listings }: TListingsProps) => {
-  console.log("from listing components", listings);
-  // const columns: ColumnDef<IListing>[] = [
-  //   {
-  //     accessorKey: "status",
-  //     header: "Status",
-  //   },
-  //   {
-  //     accessorKey: "email",
-  //     header: "Email",
-  //   },
-  //   {
-  //     accessorKey: "amount",
-  //     header: "Amount",
-  //   },
-  // ];
   const columns: ColumnDef<IListing>[] = [
     {
       accessorKey: "slNumber",
       header: () => <div className="">Serial Number</div>,
-      cell: () => <span className="truncate">1</span>,
+      cell: ({ row }) => <span className="truncate">{row.index + 1}</span>,
     },
     {
       accessorKey: "img",
@@ -37,7 +22,7 @@ const Listing = ({ listings }: TListingsProps) => {
       cell: ({ row }) => (
         <div>
           <Image
-            src={row?.original?.images[0]}
+            src={row?.original?.images}
             alt={row?.original?.title}
             width={40}
             height={40}
@@ -54,6 +39,13 @@ const Listing = ({ listings }: TListingsProps) => {
       ),
     },
     {
+      accessorKey: "availability",
+      header: () => <div>Availability</div>,
+      cell: ({ row }) => (
+        <span className="truncate">{row?.original?.availability}</span>
+      ),
+    },
+    {
       accessorKey: "status",
       header: () => <div>Status</div>,
       cell: ({ row }) => (
@@ -64,7 +56,7 @@ const Listing = ({ listings }: TListingsProps) => {
             </p>
           ) : (
             <p className="text-red-500 border bg-red-100 w-14 text-center px-1 rounded">
-              Unavailable
+              Sold
             </p>
           )}
         </div>
@@ -84,7 +76,7 @@ const Listing = ({ listings }: TListingsProps) => {
         <div className="flex justify-center items-center gap-6">
           <button
             className="text-emerald-500"
-            title="Delete"
+            title="edit listing"
             // onClick={() => handleDelete(row.original)}
           >
             <Edit className="w-5 h-5" />
@@ -101,15 +93,14 @@ const Listing = ({ listings }: TListingsProps) => {
     },
   ];
   return (
-    <div>
-      <h1>This is Listing Components</h1>
+    <>
       {/* start table */}
       {listings.length > 0 ? (
         <TthTable data={listings} columns={columns} />
       ) : (
         "No Listings Available"
       )}
-    </div>
+    </>
   );
 };
 

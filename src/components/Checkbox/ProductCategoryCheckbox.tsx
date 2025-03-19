@@ -72,7 +72,7 @@ const ProductCategoryCheckbox = () => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      items: ["writing", "pilot"],
+      items: ["mobiles", "brandNew"],
     },
   });
 

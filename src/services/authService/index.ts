@@ -41,7 +41,6 @@ export const loginUser = async (userData: FieldValues) => {
 
       storeCookies.set("token", result.token);
     }
-
     return result;
   } catch (error: any) {
     return Error(error);

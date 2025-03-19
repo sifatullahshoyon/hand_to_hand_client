@@ -90,8 +90,8 @@ const data = {
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Create Listings",
+          url: "/user/listings/add-listings",
         },
         {
           title: "Get Started",

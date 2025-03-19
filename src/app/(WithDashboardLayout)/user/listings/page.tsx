@@ -4,11 +4,11 @@ import React from "react";
 
 const ListingPage = async () => {
   const { data } = await getAllListings();
-  console.log("List Data =>", data);
+
   return (
-    <div>
+    <>
       <Listing listings={data} />
-    </div>
+    </>
   );
 };
 
