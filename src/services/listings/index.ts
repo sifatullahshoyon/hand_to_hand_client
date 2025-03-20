@@ -42,3 +42,23 @@ export const getAllListings = async () => {
     return Error(error);
   }
 };
+
+// get all listings
+export const deleteListing = async (listingId: string): Promise<any> => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings/${listingId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: (await cookies()).get("token")!.value,
+        },
+      }
+    );
+    revalidateTag("LISTINGS");
+    return res.json();
+  } catch (error: any) {
+    return Error(error);
+  }
+};

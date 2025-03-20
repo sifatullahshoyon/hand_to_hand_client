@@ -24,7 +24,7 @@ const DeleteConfirmationModal: React.FC<DeleteModalProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
-      <DialogContent>
+      <DialogContent className="bg-white border-none">
         <DialogHeader>
           <DialogTitle>Delete Item</DialogTitle>
           <DialogDescription>
@@ -38,7 +38,7 @@ const DeleteConfirmationModal: React.FC<DeleteModalProps> = ({
             Cancel
           </Button>
           <Button
-            variant="destructive"
+            className="bg-rose-400 hover:bg-rose-400"
             onClick={() => {
               onConfirm();
               onOpenChange(false);

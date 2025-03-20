@@ -1,15 +1,47 @@
 "use client";
+import DeleteConfirmationModal from "@/components/ui/core/HTHModal/DeleteConfirmationModal";
 import { TthTable } from "@/components/ui/core/HTHTable";
+import { deleteListing } from "@/services/listings";
 import { IListing } from "@/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Edit, Trash2 } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import { toast } from "sonner";
 
 type TListingsProps = {
   listings: IListing[];
 };
 
 const Listing = ({ listings }: TListingsProps) => {
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+
+  const handleDelete = (data: IListing) => {
+    console.log(data);
+    setSelectedId(data?._id);
+    setSelectedItem(data?.title);
+    setModalOpen(true);
+  };
+
+  const handleDeleteConfirm = async () => {
+    try {
+      if (selectedId) {
+        const res = await deleteListing(selectedId);
+        console.log(res);
+        if (res.status) {
+          toast.success(res.message);
+          setModalOpen(false);
+        } else {
+          toast.error(res.message);
+        }
+      }
+    } catch (err: any) {
+      console.error(err?.message);
+    }
+  };
+
   const columns: ColumnDef<IListing>[] = [
     {
       accessorKey: "slNumber",
@@ -72,7 +104,7 @@ const Listing = ({ listings }: TListingsProps) => {
     {
       accessorKey: "action",
       header: () => <div className="text-center">Action</div>,
-      cell: () => (
+      cell: ({ row }) => (
         <div className="flex justify-center items-center gap-6">
           <button
             className="text-emerald-500"
@@ -84,7 +116,7 @@ const Listing = ({ listings }: TListingsProps) => {
           <button
             className="text-red-500"
             title="Delete"
-            // onClick={() => handleDelete(row.original)}
+            onClick={() => handleDelete(row.original)}
           >
             <Trash2 className="w-5 h-5" />
           </button>
@@ -100,6 +132,12 @@ const Listing = ({ listings }: TListingsProps) => {
       ) : (
         "No Listings Available"
       )}
+      <DeleteConfirmationModal
+        name={selectedItem}
+        isOpen={isModalOpen}
+        onOpenChange={setModalOpen}
+        onConfirm={handleDeleteConfirm}
+      />
     </>
   );
 };
