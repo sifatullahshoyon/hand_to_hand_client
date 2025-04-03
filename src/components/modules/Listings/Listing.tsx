@@ -6,10 +6,11 @@ import { IListing } from "@/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Edit, Trash2 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { toast } from "sonner";
 
-type TListingsProps = {
+export type TListingsProps = {
   listings: IListing[];
 };
 
@@ -19,17 +20,21 @@ const Listing = ({ listings }: TListingsProps) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
   const handleDelete = (data: IListing) => {
-    console.log(data);
     setSelectedId(data?._id);
     setSelectedItem(data?.title);
     setModalOpen(true);
+  };
+
+  const handleUpdate = (data: IListing) => {
+    setSelectedId(data?._id);
+    setSelectedItem(data?.title);
   };
 
   const handleDeleteConfirm = async () => {
     try {
       if (selectedId) {
         const res = await deleteListing(selectedId);
-        console.log(res);
+
         if (res.status) {
           toast.success(res.message);
           setModalOpen(false);
@@ -82,13 +87,13 @@ const Listing = ({ listings }: TListingsProps) => {
       header: () => <div>Status</div>,
       cell: ({ row }) => (
         <div>
-          {row?.original?.status ? (
+          {row?.original?.status === "available" ? (
             <p className="text-green-500 border bg-green-100 w-20 text-center px-2 rounded">
-              Available
+              {row?.original?.status}
             </p>
           ) : (
             <p className="text-red-500 border bg-red-100 w-14 text-center px-1 rounded">
-              Sold
+              {row?.original?.status}
             </p>
           )}
         </div>
@@ -107,18 +112,20 @@ const Listing = ({ listings }: TListingsProps) => {
       cell: ({ row }) => (
         <div className="flex justify-center items-center gap-6">
           <button
+            onClick={() => handleUpdate(row.original)}
             className="text-emerald-500"
             title="edit listing"
-            // onClick={() => handleDelete(row.original)}
           >
-            <Edit className="w-5 h-5" />
+            <Link href={`/user/listings/${row.original._id}`}>
+              <Edit className="w-5 h-5" />
+            </Link>
           </button>
           <button
             className="text-red-500"
             title="Delete"
             onClick={() => handleDelete(row.original)}
           >
-            <Trash2 className="w-5 h-5" />
+            <Trash2 className="w-5 h-5 cursor-pointer" />
           </button>
         </div>
       ),

@@ -15,10 +15,12 @@ export const listingFormValidationSchema = z.object({
     })
     .min(10, "Description must be at least 10 characters long"),
 
-  color: z.string({
-    required_error: "Color is required",
-    invalid_type_error: "Color must be a string",
-  }),
+  color: z
+    .string({
+      required_error: "Color is required",
+      invalid_type_error: "Color must be a string",
+    })
+    .optional(),
 
   price: z.string({
     required_error: "Price is required",

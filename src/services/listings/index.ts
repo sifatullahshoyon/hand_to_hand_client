@@ -43,7 +43,31 @@ export const getAllListings = async () => {
   }
 };
 
-// get all listings
+// update listings
+export const updateListing = async (
+  listingId: string,
+  listingData: FieldValues
+): Promise<any> => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings/${listingId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: (await cookies()).get("token")!.value,
+        },
+        body: JSON.stringify(listingData),
+      }
+    );
+    revalidateTag("LISTINGS");
+    return res.json();
+  } catch (error: any) {
+    return Error(error);
+  }
+};
+
+// delete listings
 export const deleteListing = async (listingId: string): Promise<any> => {
   try {
     const res = await fetch(

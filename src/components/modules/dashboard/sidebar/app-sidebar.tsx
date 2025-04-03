@@ -94,16 +94,8 @@ const data = {
           url: "/user/listings/add-listings",
         },
         {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          title: "Update Listings",
+          url: "/user/listings/update-listings",
         },
       ],
     },
