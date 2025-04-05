@@ -18,7 +18,7 @@ import Container from "@/components/shared/Container";
 
 const ImgSlider = () => {
   return (
-    <div className="mt-16 mb-6">
+    <div className="mt-16">
       <Container>
         <Swiper
           navigation

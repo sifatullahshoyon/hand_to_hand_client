@@ -1,4 +1,5 @@
 import BrowseItems from "@/components/modules/Home/Browseitems/Browse items";
+import ContactUs from "@/components/modules/Home/ContactUs/ContactUs";
 import Gallery from "@/components/modules/Home/Gallery/Gallery";
 import GalleryTwo from "@/components/modules/Home/GalleryTwo/GalleryTwo";
 import HeroSection from "@/components/modules/Home/HeroSection";
@@ -19,6 +20,7 @@ const HomePage = () => {
       <GalleryTwo />
       <Watch />
       <ImgSlider />
+      <ContactUs />
     </>
   );
 };
