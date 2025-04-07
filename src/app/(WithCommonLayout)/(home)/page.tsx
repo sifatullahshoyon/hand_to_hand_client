@@ -8,6 +8,7 @@ import Laptop from "@/components/modules/Home/Laptop/Laptop";
 import Smartphone from "@/components/modules/Home/Smartphone/Smartphone ";
 import Watch from "@/components/modules/Home/Watch/Watch";
 import React from "react";
+import Brand from "../../../components/modules/Home/Brand/Brand";
 
 const HomePage = () => {
   return (
@@ -21,6 +22,7 @@ const HomePage = () => {
       <Watch />
       <ImgSlider />
       <ContactUs />
+      <Brand />
     </>
   );
 };
