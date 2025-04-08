@@ -6,24 +6,43 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
-import { orderedProductsSelector } from "@/redux/features/cartSlice";
-import { useAppSelector } from "@/redux/hook";
+import {
+  decrementOrderQuantity,
+  ICartProduct,
+  incrementOrderQuantity,
+  removeProduct,
+} from "@/redux/features/cartSlice";
+import { useAppDispatch } from "@/redux/hook";
 import { BadgeCheck, Minus, Plus, Trash2, Truck } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
-const PaymentCart = () => {
-  const products = useAppSelector(orderedProductsSelector);
-  console.log(products);
+const PaymentCart = ({ product }: { product: ICartProduct }) => {
+  const { _id, images, title, color, price } = product;
+
+  const dispatch = useAppDispatch();
+
+  // order quantity increase & decrease function
+  const handleIncrementQuantity = (id: string) => {
+    dispatch(incrementOrderQuantity(id));
+  };
+
+  const handleDecrementQuantity = (id: string) => {
+    dispatch(decrementOrderQuantity(id));
+  };
+  // product remove from cart
+  const handleRemoveProductFromCart = (id: string) => {
+    dispatch(removeProduct(id));
+  };
   return (
     <>
-      <Card className="flex lg:flex-row justify-between gap-6  px-4 py-6  mx-auto border-none bg-gray-50 shadow-lg ">
+      <Card className="flex lg:flex-row justify-between gap-6  px-4 py-6  mx-auto border-none bg-gray-50 shadow-lg mb-6">
         <div className="w-full lg:w-[25%] p-2">
           <Image
-            src="https://d3qqewlrl1nyfn.cloudfront.net/product/16851654191184568877.webp"
+            src={images ? images : "Img Not Found"}
             width={200}
             height={200}
-            alt="product img"
+            alt={title}
             className="object-cover"
             placeholder="blur"
             blurDataURL="all"
@@ -34,12 +53,13 @@ const PaymentCart = () => {
           {/* card img */}
           <CardTitle>
             <h1 className="pb-4 font-bold text-balance text-[#1A1A1A] ">
-              Lenovo Ideapad Slim 3i
+              {title ? title : "Title Not Found"}
             </h1>
           </CardTitle>
           <CardDescription>
             <p className="pb-4 text-neutral-500">
-              Color : <span className="text-[#1A1A1A]">Black</span>
+              Color :{" "}
+              <span className="text-[#1A1A1A]">{color ? color : "Black"}</span>
             </p>
             {/* end color */}
             <div className="flex items-center gap-2 pb-4">
@@ -53,21 +73,31 @@ const PaymentCart = () => {
             </div>
             <div className="flex justify-between items-center flex-wrap gap-2">
               <p className="pb-4 text-neutral-500 text-base">
-                Price : <span className="text-[#1A1A1A]">$50</span>
+                Price :{" "}
+                <span className="text-[#1A1A1A]">
+                  ${price ? price : "0.00"}
+                </span>
               </p>
               {/* start product quantity option */}
 
               <div className="flex items-center gap-2">
                 <p className="text-neutral-500">
-                  <Trash2 size={18} className="text-rose-400" />
+                  <Trash2
+                    onClick={() => handleRemoveProductFromCart(_id)}
+                    size={18}
+                    className="text-rose-400"
+                  />
                 </p>
                 <div className="flex items-center gap-2">
-                  <Button>
+                  <Button
+                    onClick={() => handleDecrementQuantity(_id)}
+                    // disabled={product?.orderQuantity > 1}
+                  >
                     {" "}
                     <Minus />{" "}
                   </Button>
-                  <span>2</span>
-                  <Button>
+                  <span>{product?.orderQuantity}</span>
+                  <Button onClick={() => handleIncrementQuantity(_id)}>
                     <Plus />
                   </Button>
                 </div>

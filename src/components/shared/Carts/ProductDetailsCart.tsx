@@ -14,15 +14,16 @@ import { BadgeCheck, Minus, Plus, Star, Store, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { toast } from "sonner";
 
 const ProductDetailsCart = ({ product }: { product: IListing }) => {
-  console.log("single product page =>", product);
   const { title, description, images, price, availability, color } = product;
+
   const dispatch = useAppDispatch();
 
   const handleAddToCart = (product: IListing) => {
-    // console.log("add to cart");
     dispatch(addProduct(product));
+    toast.success("Item Successfully add to Cart");
   };
   return (
     <>
@@ -31,8 +32,8 @@ const ProductDetailsCart = ({ product }: { product: IListing }) => {
         <div>
           <Image
             src={images ? images : "Img Not Found"}
-            width={500}
-            height={500}
+            width={300}
+            height={300}
             alt="product img"
             className="mx-auto"
             placeholder="blur"
