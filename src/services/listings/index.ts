@@ -86,3 +86,21 @@ export const deleteListing = async (listingId: string): Promise<any> => {
     return Error(error);
   }
 };
+
+// GET single listings
+export const getSingleListing = async (listingId: string): Promise<any> => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings/${listingId}`,
+      {
+        next: {
+          tags: ["LISTINGS"],
+        },
+      }
+    );
+    // revalidateTag("LISTINGS");
+    return res.json();
+  } catch (error: any) {
+    return Error(error);
+  }
+};

@@ -6,10 +6,13 @@ import { Input } from "@/components/ui/input";
 import ProductFilter from "./ProductFilter/ProductFilter";
 import { FilterIcon } from "lucide-react";
 import ProductSortingByPrice from "./ProductSortingByPrice";
-import { smartphonesData } from "../Home/Smartphone/Smartphone ";
 import ProductCart from "@/components/shared/Carts/ProductCart";
+import { getAllListings } from "@/services/listings";
+import { IListing } from "@/types";
 
-const Products = () => {
+const Products = async () => {
+  const { data: products } = await getAllListings();
+
   return (
     <>
       <div className={`${styles.banner}`}>
@@ -76,7 +79,7 @@ const Products = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
                 {/* Product Cards */}
-                {smartphonesData?.map((item, index) => (
+                {products?.map((item: IListing, index: number) => (
                   <ProductCart key={index} item={item} />
                 ))}
               </div>

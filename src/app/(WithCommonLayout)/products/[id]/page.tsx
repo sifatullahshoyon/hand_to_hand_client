@@ -1,10 +1,20 @@
 import SingleProduct from "@/components/modules/SingleProduct/SingleProduct";
-import React from "react";
+import { getSingleListing } from "@/services/listings";
 
-const SingleProductPage = () => {
+interface SingleProductPageProps {
+  params: {
+    id: string;
+  };
+}
+
+const SingleProductPage = async ({ params }: SingleProductPageProps) => {
+  const listingId = params.id;
+
+  const { data: product } = await getSingleListing(listingId);
+
   return (
     <>
-      <SingleProduct />
+      <SingleProduct product={product} />
     </>
   );
 };

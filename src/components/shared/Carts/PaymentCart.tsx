@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -5,11 +6,15 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
+import { orderedProductsSelector } from "@/redux/features/cartSlice";
+import { useAppSelector } from "@/redux/hook";
 import { BadgeCheck, Minus, Plus, Trash2, Truck } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
 const PaymentCart = () => {
+  const products = useAppSelector(orderedProductsSelector);
+  console.log(products);
   return (
     <>
       <Card className="flex lg:flex-row justify-between gap-6  px-4 py-6  mx-auto border-none bg-gray-50 shadow-lg ">

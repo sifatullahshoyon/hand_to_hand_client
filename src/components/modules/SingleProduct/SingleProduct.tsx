@@ -1,10 +1,10 @@
 import Container from "@/components/shared/Container";
 import React from "react";
 import styles from "../Products/Products.module.css";
-
 import ProductDetailsCart from "@/components/shared/Carts/ProductDetailsCart";
+import { IListing } from "@/types";
 
-const SingleProduct = () => {
+const SingleProduct = ({ product }: { product: IListing }) => {
   return (
     <>
       <div className={`${styles.banner}`}>
@@ -24,7 +24,7 @@ const SingleProduct = () => {
         <Container>
           <div>
             <div>
-              <ProductDetailsCart />
+              <ProductDetailsCart product={product} />
             </div>
           </div>
         </Container>
