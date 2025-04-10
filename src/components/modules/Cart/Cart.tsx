@@ -3,10 +3,10 @@ import React from "react";
 import styles from "../Products/Products.module.css";
 import Container from "@/components/shared/Container";
 import PaymentCart from "@/components/shared/Carts/PaymentCart";
-import PaymentProccedCart from "./PaymentProccedCart";
 import { useAppSelector } from "@/redux/hook";
 import { orderedProductsSelector } from "@/redux/features/cartSlice";
 import Image from "next/image";
+import CheckoutForm from "../Checkout/CheckoutForm";
 
 const Cart = () => {
   const products = useAppSelector(orderedProductsSelector);
@@ -23,7 +23,7 @@ const Cart = () => {
       {/* End Item Banner Img */}
       <div className="my-16 p-2">
         <Container>
-          <div className="md:flex md:flex-col lg:flex-row justify-between space-y-6 lg:space-y-0 gap-12  w-full">
+          <div className="md:flex md:flex-col lg:flex-row justify-between space-y-6 lg:space-y-0 gap-4  w-full">
             <div className="w-full">
               {products.length === 0 && (
                 <div className="text-center text-gray-500">
@@ -49,8 +49,9 @@ const Cart = () => {
                 <PaymentCart key={product?._id} product={product} />
               ))}
             </div>
-            <div className="w-full md:w-[60%] lg:w-[40%]">
-              <PaymentProccedCart />
+            <div className="w-full md:w-[60%] lg:w-[60%]">
+              {/* <PaymentProccedCart /> */}
+              <CheckoutForm products={products} />
             </div>
           </div>
         </Container>

@@ -9,10 +9,14 @@ export interface ICartProduct extends IListing {
 interface IInitialState {
   // products: IListing[];
   products: ICartProduct[];
+  city: string;
+  shippingAddress: string;
 }
 
 const initialState: IInitialState = {
   products: [],
+  city: "",
+  shippingAddress: "",
 };
 
 const cartSlice = createSlice({
@@ -56,11 +60,29 @@ const cartSlice = createSlice({
         (product) => product._id !== action.payload
       );
     },
+    updateShippingAddress: (state, action) => {
+      state.shippingAddress = action.payload;
+    },
   },
 });
 
+// product
 export const orderedProductsSelector = (state: RootState) => {
   return state.cart.products;
+};
+
+// calculate price
+export const subTotalSelector = (state: RootState) => {
+  return state.cart.products.reduce((acc, product) => {
+    const str = product.price;
+    const num = Number(str.replace(/,/g, ""));
+    return acc + num * product.orderQuantity;
+  }, 0);
+};
+
+// address
+export const shippingAddressSelector = (state: RootState) => {
+  return state.cart.shippingAddress;
 };
 
 export const {
@@ -68,5 +90,6 @@ export const {
   incrementOrderQuantity,
   decrementOrderQuantity,
   removeProduct,
+  updateShippingAddress,
 } = cartSlice.actions;
 export default cartSlice.reducer;

@@ -69,7 +69,7 @@ const Products = async () => {
             <div className="col-span-6  p-6">
               <div className="flex justify-between items-center gap-2 flex-wrap mb-6">
                 <p className="font-bold text-xl text-[#1A1A1A] tracking-wide">
-                  150 Products
+                  {products?.length} Products
                 </p>
                 <ProductSortingByPrice />
               </div>
@@ -77,7 +77,7 @@ const Products = async () => {
 
               {/* start product cart */}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-6">
                 {/* Product Cards */}
                 {products?.map((item: IListing, index: number) => (
                   <ProductCart key={index} item={item} />

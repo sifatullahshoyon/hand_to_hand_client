@@ -1,8 +1,10 @@
-import React from "react";
+"use client";
 import { Badge } from "@/components/ui/badge";
 import UserInfoDropdown from "@/components/Dropdown/UserInfoDropdown";
 import TooltipTitle from "../Tooltip/TooltipTitle";
 import Link from "next/link";
+import { orderedProductsSelector } from "@/redux/features/cartSlice";
+import { useAppSelector } from "@/redux/hook";
 
 const heartIcon = (
   <svg
@@ -41,6 +43,7 @@ const shoppingCartIcon = (
 );
 
 const Navcart = () => {
+  const products = useAppSelector(orderedProductsSelector);
   return (
     <div className="md:flex justify-between items-center gap-4 space-y-6 md:space-y-0">
       {/* Auth Options */}
@@ -60,7 +63,7 @@ const Navcart = () => {
           content="shopping Cart"
         ></TooltipTitle>
         <Badge className="absolute -top-4 left-3 bg-[#1A1A1A] text-white">
-          0
+          {products?.length ? products?.length : 0}
         </Badge>
       </Link>
     </div>

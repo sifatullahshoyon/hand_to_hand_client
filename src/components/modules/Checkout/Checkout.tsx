@@ -1,9 +1,9 @@
 import React from "react";
 import styles from "../Products/Products.module.css";
 import Container from "@/components/shared/Container";
-import CheckoutForm from "./CheckoutForm";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import PaymentProccedCart from "../Cart/PaymentProccedCart";
 
 const Checkout = () => {
   return (
@@ -21,10 +21,10 @@ const Checkout = () => {
         <Container>
           {/* checkout form */}
           <div className="w-[98%] md:w-[80%] lg:w-[50%] mx-auto">
-            <CheckoutForm />
+            <PaymentProccedCart />
             <Link
               href="/cart"
-              className="flex items-center gap-2 mt-6 ml-16 mb-2 text-purple-500"
+              className="flex items-center gap-2 mt-6 mb-2 text-purple-500"
             >
               <ArrowLeft size={18} /> Return Cart
             </Link>

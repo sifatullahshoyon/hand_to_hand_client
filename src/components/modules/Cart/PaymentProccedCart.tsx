@@ -1,11 +1,14 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
+import { subTotalSelector } from "@/redux/features/cartSlice";
+import { useAppSelector } from "@/redux/hook";
 
 import Link from "next/link";
 
-import React from "react";
-
 const PaymentProccedCart = () => {
+  const subTotal = useAppSelector(subTotalSelector);
+  // console.log(subTotal, "payment procced cart");
   return (
     <>
       <Card className="border-none shadow">
@@ -13,7 +16,7 @@ const PaymentProccedCart = () => {
         <CardContent>
           <div className="flex justify-between gap-2 mb-3">
             <p className="text-neutral-500">Subtotal</p>
-            <p className="text-neutral-500">$516.39</p>
+            <p className="text-neutral-500">${subTotal ? subTotal : "0.00"}</p>
           </div>
           <div className="flex justify-between gap-2 mb-3">
             <p className="text-neutral-500">Discount</p>
@@ -30,9 +33,9 @@ const PaymentProccedCart = () => {
           </div>
         </CardContent>
         <CardFooter>
-          <Link href="/checkout" className="w-full">
+          <Link href="" className="w-full">
             <Button className="w-full bg-purple-500 hover:bg-purple-600 transition-all text-white cursor-pointer">
-              Proceed to checkout
+              Proceed to Payment
             </Button>
           </Link>
         </CardFooter>

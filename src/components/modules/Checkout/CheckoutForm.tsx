@@ -16,6 +16,15 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
+// import { useAppSelector } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import {
+  ICartProduct,
+  shippingAddressSelector,
+  updateShippingAddress,
+} from "@/redux/features/cartSlice";
+import { useUser } from "@/context/UserContext";
+import Link from "next/link";
 
 const shippings = [
   {
@@ -40,17 +49,27 @@ const shippings = [
 
 const FormSchema = z.object({
   user: z.string({ required_error: "Name is required" }),
+  email: z.string({ required_error: "Email is required" }).email(),
   address: z.string({ required_error: "Address is required" }),
   type: z.enum(shippings.map((ship) => ship.value) as [string, ...string[]], {
     required_error: "You need to select a shipation.",
   }),
 });
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ products }: { products: ICartProduct[] }) => {
+  const dispatch = useAppDispatch();
+  const { user } = useUser();
+
+  const shippingAddress = useAppSelector(shippingAddressSelector);
+  console.log(shippingAddress, "shipping address");
   // form validation
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
-    defaultValues: { type: "regularShipping" },
+    defaultValues: {
+      user: user?.name || "",
+      email: user?.email || "",
+      type: "regularShipping",
+    },
   });
 
   // Destructure form value
@@ -66,15 +85,28 @@ const CheckoutForm = () => {
     // ফাইনাল ডাটা
     const formData = {
       name: data.user,
+      email: data.email,
       address: data.address,
       type: data.type,
       price: selectedShipping ? selectedShipping.price : "0.00",
     };
 
-    console.log(formData);
+    dispatch(updateShippingAddress(formData));
+    console.log(formData, "form data");
+    // a
   };
+
+  // useEffect(() => {
+  //   if (user) {
+  //     form.reset({
+  //       user: user.name,
+  //       email: user.email,
+  //       type: "regularShipping",
+  //     });
+  //   }
+  // }, [user]);
   return (
-    <div>
+    <>
       <Card className="md:w-4/5 h-full mx-auto flex flex-col justify-center shadow-lg overflow-hidden rounded border-none">
         <CardContent>
           <Form {...form}>
@@ -95,15 +127,37 @@ const CheckoutForm = () => {
                         id="user"
                         placeholder="Enter Your Name"
                         {...field}
-                        value={field.value || ""}
-                        className="placeholder:text-[#c0bfbd]"
+                        readOnly
+                        className="placeholder:text-[#c0bfbd] bg-gray-200"
                       />
                     </FormControl>
                     <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
-              {/* End Email  */}
+              {/* End user name  */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <Label htmlFor="email" className="text-lg font-bold">
+                      Email
+                    </Label>
+                    <FormControl>
+                      <Input
+                        id="email"
+                        placeholder="Enter Your Email"
+                        {...field}
+                        readOnly
+                        className="placeholder:text-[#c0bfbd] bg-gray-200"
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-400" />
+                  </FormItem>
+                )}
+              />
+              {/* End user name  */}
               <FormField
                 control={form.control}
                 name="address"
@@ -119,6 +173,7 @@ const CheckoutForm = () => {
                         {...field}
                         value={field.value || ""}
                         className="placeholder:text-[#c0bfbd]"
+                        required
                       />
                     </FormControl>
                     <FormMessage className="text-red-400" />
@@ -166,21 +221,25 @@ const CheckoutForm = () => {
                 )}
               />
               {/* End Shipping Method */}
+
               <Button
                 type="submit"
                 className="w-full  bg-purple-500 hover:bg-purple-600 text-white tracking-wide cursor-pointer"
+                disabled={products.length === 0}
               >
-                {isSubmitting ? (
-                  <Loader2 className="animate-spin" />
-                ) : (
-                  "Continue To Pay"
-                )}
+                <Link href="/checkout">
+                  {isSubmitting ? (
+                    <Loader2 className="animate-spin" />
+                  ) : (
+                    "Proceed to checkout"
+                  )}
+                </Link>
               </Button>
             </form>
           </Form>
         </CardContent>
       </Card>
-    </div>
+    </>
   );
 };
 
