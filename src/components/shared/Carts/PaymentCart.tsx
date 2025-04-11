@@ -6,6 +6,7 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
+
 import {
   decrementOrderQuantity,
   ICartProduct,
@@ -75,7 +76,7 @@ const PaymentCart = ({ product }: { product: ICartProduct }) => {
               <p className="pb-4 text-neutral-500 text-base">
                 Price :{" "}
                 <span className="text-[#1A1A1A]">
-                  ${price ? price : "0.00"}
+                  BDT {price ? price : "0.00"}
                 </span>
               </p>
               {/* start product quantity option */}

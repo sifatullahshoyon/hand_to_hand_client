@@ -84,7 +84,9 @@ const ProductDetailsCart = ({ product }: { product: IListing }) => {
             {/* end facalitlies section */}
             <p className="pb-4 text-neutral-500">
               Price :{" "}
-              <span className="text-[#1A1A1A]">${price ? price : "0.00"}</span>
+              <span className="text-[#1A1A1A]">
+                BDT {price ? price : "0.00"}
+              </span>
             </p>
             <p className="pb-4 text-neutral-500">
               Color :{" "}

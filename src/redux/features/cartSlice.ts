@@ -7,18 +7,18 @@ export interface ICartProduct extends IListing {
   orderQuantity: number;
 }
 
-// interface IShippingInfo {
-//   name: string;
-//   email: string;
-//   address: string;
-//   type: string;
-//   price: string;
-// }
+interface IShippingInfo {
+  name: string;
+  email: string;
+  address: string;
+  type: string;
+  price: string;
+}
 interface IInitialState {
   // products: IListing[];
   products: ICartProduct[];
   city: string;
-  shippingAddress: string;
+  shippingAddress: IShippingInfo | null;
 }
 
 // interface IInitialState {
@@ -30,7 +30,7 @@ interface IInitialState {
 const initialState: IInitialState = {
   products: [],
   city: "",
-  shippingAddress: "",
+  shippingAddress: null,
 };
 
 // const initialState: IInitialState = {
@@ -130,6 +130,14 @@ export const shippingCostSelector = (state: RootState) => {
   } else {
     return 0;
   }
+};
+
+export const grandTotalSelector = (state: RootState) => {
+  const subTotal = subTotalSelector(state);
+  const shippingAddress = shippingAddressSelector(state);
+  console.log("shipping address redux =>", shippingAddress);
+  const shippingAddressPrice = parseFloat(shippingAddress?.price || "0");
+  return subTotal + shippingAddressPrice;
 };
 
 //* Address
