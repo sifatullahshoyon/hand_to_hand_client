@@ -184,7 +184,6 @@ const CheckoutForm = ({ products }: { products: ICartProduct[] }) => {
                         {...field}
                         value={field.value || ""}
                         className="placeholder:text-[#c0bfbd]"
-                        required
                       />
                     </FormControl>
                     <FormMessage className="text-red-400" />
