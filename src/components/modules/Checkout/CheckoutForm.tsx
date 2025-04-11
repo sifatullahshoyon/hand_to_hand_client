@@ -20,11 +20,14 @@ import { Loader2 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import {
   ICartProduct,
-  shippingAddressSelector,
+  orderSelector,
+  // shippingAddressSelector,
+  shippingCostSelector,
   updateShippingAddress,
 } from "@/redux/features/cartSlice";
 import { useUser } from "@/context/UserContext";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+// import Link from "next/link";
 
 const shippings = [
   {
@@ -59,9 +62,21 @@ const FormSchema = z.object({
 const CheckoutForm = ({ products }: { products: ICartProduct[] }) => {
   const dispatch = useAppDispatch();
   const { user } = useUser();
+  const router = useRouter();
+  //! start shipping address
+  // const shippingAddress = useAppSelector(shippingAddressSelector);
+  // console.log(shippingAddress, "shipping address");
 
-  const shippingAddress = useAppSelector(shippingAddressSelector);
-  console.log(shippingAddress, "shipping address");
+  //! end shipping address
+
+  const shippingCost = useAppSelector(shippingCostSelector);
+
+  console.log(shippingCost);
+
+  const order = useAppSelector(orderSelector);
+
+  console.log(order);
+
   // form validation
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -91,20 +106,16 @@ const CheckoutForm = ({ products }: { products: ICartProduct[] }) => {
       price: selectedShipping ? selectedShipping.price : "0.00",
     };
 
-    dispatch(updateShippingAddress(formData));
+    // dispatch(updateShippingAddress(formData));
+
     console.log(formData, "form data");
-    // a
+    dispatch(updateShippingAddress(formData));
+
+    setTimeout(() => {
+      router.push("/checkout");
+    }, 100);
   };
 
-  // useEffect(() => {
-  //   if (user) {
-  //     form.reset({
-  //       user: user.name,
-  //       email: user.email,
-  //       type: "regularShipping",
-  //     });
-  //   }
-  // }, [user]);
   return (
     <>
       <Card className="md:w-4/5 h-full mx-auto flex flex-col justify-center shadow-lg overflow-hidden rounded border-none">
@@ -157,7 +168,7 @@ const CheckoutForm = ({ products }: { products: ICartProduct[] }) => {
                   </FormItem>
                 )}
               />
-              {/* End user name  */}
+              {/* End user email  */}
               <FormField
                 control={form.control}
                 name="address"
@@ -225,15 +236,13 @@ const CheckoutForm = ({ products }: { products: ICartProduct[] }) => {
               <Button
                 type="submit"
                 className="w-full  bg-purple-500 hover:bg-purple-600 text-white tracking-wide cursor-pointer"
-                disabled={products.length === 0}
+                disabled={products?.length === 0}
               >
-                <Link href="/checkout">
-                  {isSubmitting ? (
-                    <Loader2 className="animate-spin" />
-                  ) : (
-                    "Proceed to checkout"
-                  )}
-                </Link>
+                {isSubmitting ? (
+                  <Loader2 className="animate-spin" />
+                ) : (
+                  "Proceed to checkout"
+                )}
               </Button>
             </form>
           </Form>

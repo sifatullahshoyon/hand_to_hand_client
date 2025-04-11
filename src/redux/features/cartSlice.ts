@@ -6,6 +6,14 @@ import { RootState } from "../store";
 export interface ICartProduct extends IListing {
   orderQuantity: number;
 }
+
+// interface IShippingInfo {
+//   name: string;
+//   email: string;
+//   address: string;
+//   type: string;
+//   price: string;
+// }
 interface IInitialState {
   // products: IListing[];
   products: ICartProduct[];
@@ -13,11 +21,23 @@ interface IInitialState {
   shippingAddress: string;
 }
 
+// interface IInitialState {
+//   products: ICartProduct[];
+//   city: string;
+//   shippingAddress: IShippingInfo | null;
+// }
+
 const initialState: IInitialState = {
   products: [],
   city: "",
   shippingAddress: "",
 };
+
+// const initialState: IInitialState = {
+//   products: [],
+//   city: "",
+//   shippingAddress: null,
+// };
 
 const cartSlice = createSlice({
   name: "cart",
@@ -60,18 +80,32 @@ const cartSlice = createSlice({
         (product) => product._id !== action.payload
       );
     },
+    updateCity: (state, action) => {
+      state.city = action.payload;
+    },
     updateShippingAddress: (state, action) => {
       state.shippingAddress = action.payload;
     },
   },
 });
 
-// product
+//* product
 export const orderedProductsSelector = (state: RootState) => {
   return state.cart.products;
 };
 
-// calculate price
+export const orderSelector = (state: RootState) => {
+  return {
+    products: state.cart.products.map((product) => ({
+      product: product._id,
+      quantity: product.orderQuantity,
+    })),
+    shippingAddress: `${state.cart.shippingAddress}`,
+    paymentMethod: "Online",
+  };
+};
+
+//* payment
 export const subTotalSelector = (state: RootState) => {
   return state.cart.products.reduce((acc, product) => {
     const str = product.price;
@@ -80,7 +114,29 @@ export const subTotalSelector = (state: RootState) => {
   }, 0);
 };
 
-// address
+export const shippingCostSelector = (state: RootState) => {
+  if (
+    state.cart.city &&
+    state.cart.city === "Dhaka" &&
+    state.cart.products.length > 0
+  ) {
+    return 60;
+  } else if (
+    state.cart.city &&
+    state.cart.city !== "Dhaka" &&
+    state.cart.products.length > 0
+  ) {
+    return 120;
+  } else {
+    return 0;
+  }
+};
+
+//* Address
+export const citySelector = (state: RootState) => {
+  return state.cart.city;
+};
+
 export const shippingAddressSelector = (state: RootState) => {
   return state.cart.shippingAddress;
 };
@@ -90,6 +146,7 @@ export const {
   incrementOrderQuantity,
   decrementOrderQuantity,
   removeProduct,
+  updateCity,
   updateShippingAddress,
 } = cartSlice.actions;
 export default cartSlice.reducer;
