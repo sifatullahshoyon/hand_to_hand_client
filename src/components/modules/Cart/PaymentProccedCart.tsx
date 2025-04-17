@@ -60,12 +60,17 @@ const PaymentProccedCart = () => {
 
     if (isSuccess) {
       toast.success(data?.message, { id: toastId });
+      if (data?.data) {
+        setTimeout(() => {
+          window.location.href = data?.data?.paymentUrl;
+        }, 1000);
+      }
     }
 
     if (isError) {
       toast.error(JSON.stringify(isError), { id: toastId });
     }
-  }, [data?.message, isError, isLoading, isSuccess]);
+  }, [data?.data, data?.message, isError, isLoading, isSuccess]);
   return (
     <>
       <Card className="border-none shadow">

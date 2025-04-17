@@ -116,7 +116,7 @@ const ProductDetailsCart = ({ product }: { product: IListing }) => {
                 Add to cart
               </Button>
             </Link>
-            <Link href="/checkout" className="w-full">
+            <Link href="/cart" className="w-full">
               <Button className="bg-purple-500 hover:bg-purple-600 text-white w-full font-medium text-base tracking-wide cursor-pointer transition-all rounded-2xl">
                 Buy Now
               </Button>
