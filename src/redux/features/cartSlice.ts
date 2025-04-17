@@ -55,6 +55,30 @@ const cartSlice = createSlice({
 
       state.products.push({ ...action.payload, orderQuantity: 1 });
     },
+
+    //! Add Product
+
+    // addProduct: (state, action) => {
+    //   const productToAdd = state.products.find(
+    //     (product) => product._id === action.payload._id
+    //   );
+
+    //   if (!action.payload._id) {
+    //     console.error(
+    //       "Attempted to add a product without an _id:",
+    //       action.payload
+    //     );
+    //     return;
+    //   }
+
+    //   if (productToAdd) {
+    //     productToAdd.orderQuantity += 1;
+    //     return;
+    //   }
+
+    //   state.products.push({ ...action.payload, orderQuantity: 1 });
+    // },
+
     incrementOrderQuantity: (state, action) => {
       const productToIncrement = state.products.find(
         (product) => product._id === action.payload
@@ -99,6 +123,13 @@ export const orderedProductsSelector = (state: RootState) => {
   return state.cart.products;
 };
 
+// export const orderedProductsSelector = (state: RootState) => {
+//   return state.cart.products.map((product) => ({
+//     ...product,
+//     id: product._id, // Map _id to id for consistency
+//   }));
+// };
+
 export const orderSelector = (state: RootState) => {
   return {
     products: state.cart.products.map((product) => ({
@@ -140,7 +171,6 @@ export const shippingCostSelector = (state: RootState) => {
 export const grandTotalSelector = (state: RootState) => {
   const subTotal = subTotalSelector(state);
   const shippingAddress = shippingAddressSelector(state);
-  console.log("shipping address redux =>", shippingAddress);
   const shippingAddressPrice = parseFloat(shippingAddress?.price || "0");
   return subTotal + shippingAddressPrice;
 };

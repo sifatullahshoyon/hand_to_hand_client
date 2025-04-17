@@ -13,21 +13,18 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-// import { useAppSelector } from "@/redux/hook";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
+
+import { useAppDispatch } from "@/redux/hook";
 import {
   ICartProduct,
-  orderSelector,
   // shippingAddressSelector,
-  shippingCostSelector,
   updateShippingAddress,
 } from "@/redux/features/cartSlice";
+
 import { useUser } from "@/context/UserContext";
 import { useRouter } from "next/navigation";
-// import Link from "next/link";
 
 const shippings = [
   {
@@ -69,13 +66,13 @@ const CheckoutForm = ({ products }: { products: ICartProduct[] }) => {
 
   //! end shipping address
 
-  const shippingCost = useAppSelector(shippingCostSelector);
+  // const shippingCost = useAppSelector(shippingCostSelector);
 
-  console.log(shippingCost);
+  // console.log(shippingCost);
 
-  const order = useAppSelector(orderSelector);
+  // const order = useAppSelector(orderSelector);
 
-  console.log(order);
+  // console.log(order);
 
   // form validation
   const form = useForm<z.infer<typeof FormSchema>>({
