@@ -3,18 +3,20 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { currencyFormatter } from "@/lib/currencyFormatter";
 import {
+  clearCart,
   grandTotalSelector,
   orderedProductsSelector,
   shippingAddressSelector,
   subTotalSelector,
 } from "@/redux/features/cartSlice";
 import { useCreateOrderMutation } from "@/redux/features/order/order";
-import { useAppSelector } from "@/redux/hook";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import Link from "next/link";
 import { useEffect } from "react";
 import { toast } from "sonner";
 
 const PaymentProccedCart = () => {
+  const dispatch = useAppDispatch();
   const products = useAppSelector(orderedProductsSelector);
   const subTotal = useAppSelector(subTotalSelector);
   const grandTotal = useAppSelector(grandTotalSelector);
@@ -60,6 +62,10 @@ const PaymentProccedCart = () => {
 
     if (isSuccess) {
       toast.success(data?.message, { id: toastId });
+
+      // clear cart
+      dispatch(clearCart());
+
       if (data?.data) {
         setTimeout(() => {
           window.location.href = data?.data?.paymentUrl;
@@ -70,7 +76,7 @@ const PaymentProccedCart = () => {
     if (isError) {
       toast.error(JSON.stringify(isError), { id: toastId });
     }
-  }, [data?.data, data?.message, isError, isLoading, isSuccess]);
+  }, [data?.data, data?.message, dispatch, isError, isLoading, isSuccess]);
   return (
     <>
       <Card className="border-none shadow">

@@ -1,19 +1,41 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartSlice from "./features/cartSlice";
+import cartReducer from "./features/cartSlice";
 import { baseApi } from "./api/baseApi";
+import {
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
+import storage from "./storage";
+// import storage from "redux-persist/lib/storage";
 
 //! we will not do this
 //! This is a global variable so we will avoid this
 // const store = configureStore({});
 
+const persistOptions = {
+  key: "cart",
+  storage,
+};
+
+const persistedCart = persistReducer(persistOptions, cartReducer);
+
 export const makeStore = () => {
   return configureStore({
     reducer: {
       [baseApi.reducerPath]: baseApi.reducer,
-      cart: cartSlice,
+      cart: persistedCart,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(baseApi.middleware),
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }).concat(baseApi.middleware),
   });
 };
 

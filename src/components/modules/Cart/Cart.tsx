@@ -50,7 +50,6 @@ const Cart = () => {
               ))}
             </div>
             <div className="w-full md:w-[60%] lg:w-[60%]">
-              {/* <PaymentProccedCart /> */}
               <CheckoutForm products={products} />
             </div>
           </div>
