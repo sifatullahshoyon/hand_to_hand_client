@@ -25,6 +25,7 @@ import Link from "next/link";
 import { loginValidationSchema } from "./loginValidation";
 import { loginUser } from "@/services/authService";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 
 const LoginForm = () => {
   // form validation
@@ -36,7 +37,9 @@ const LoginForm = () => {
     },
   });
 
-  // for redirect
+  const { setLoading } = useUser();
+
+  // for redirects
   const searchParams = useSearchParams();
   const redirect = searchParams.get("redirectPath");
   const router = useRouter();
@@ -50,6 +53,8 @@ const LoginForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const res = await loginUser(data);
+
+      setLoading(true);
 
       if (res?.status === true) {
         toast.success(res?.message);

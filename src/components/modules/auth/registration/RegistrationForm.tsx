@@ -24,6 +24,7 @@ import Link from "next/link";
 import { registrationSchema } from "./registrationValidation";
 import { registerUser } from "@/services/authService";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/context/UserContext";
 const RegistrationForm = () => {
   // form validation
   const form = useForm({
@@ -36,6 +37,8 @@ const RegistrationForm = () => {
       confirmPassword: "12345678",
     },
   });
+
+  const { setLoading } = useUser();
 
   // Destructure form value
   const {
@@ -56,6 +59,8 @@ const RegistrationForm = () => {
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const res = await registerUser(data);
+
+      setLoading(true);
 
       if (res?.status === true) {
         toast.success(res?.message);
