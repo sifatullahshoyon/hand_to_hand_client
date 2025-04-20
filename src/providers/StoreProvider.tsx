@@ -1,6 +1,6 @@
 "use client";
 
-import Loading from "@/components/ui/core/loading";
+import LoadingSpinner from "@/components/ui/core/loading";
 import { AppStore, makeStore } from "@/redux/store";
 import { ReactNode, useRef } from "react";
 import { Provider } from "react-redux";
@@ -18,7 +18,7 @@ const StoreProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <Provider store={storeRef.current}>
-      <PersistGate loading={<Loading />} persistor={persistedStore}>
+      <PersistGate loading={<LoadingSpinner />} persistor={persistedStore}>
         {children}
       </PersistGate>
     </Provider>

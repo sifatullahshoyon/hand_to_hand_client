@@ -1,6 +1,9 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import LoadingSpinner from "@/components/ui/core/loading";
 
 export default function Loading() {
-  // You can add any UI inside Loading, including a Skeleton.
-  return <Skeleton />;
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <LoadingSpinner />
+    </div>
+  );
 }
