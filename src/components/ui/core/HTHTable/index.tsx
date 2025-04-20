@@ -33,7 +33,7 @@ export function TthTable<TData, TValue>({
 
   return (
     <div className="my-8 shadow">
-      <Table>
+      <Table className="rounded-2xl">
         <TableHeader className="bg-purple-500 text-center text-white ">
           {table.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>

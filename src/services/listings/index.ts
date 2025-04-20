@@ -27,19 +27,26 @@ export const createListing = async (userData: FieldValues) => {
 };
 
 // get all listings
-export const getAllListings = async () => {
+export const getAllListings = async (page?: string, limit?: string) => {
   try {
+    console.log("page => ", page, "limit => ", limit);
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings`,
+      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings?limit=${limit}&page=${page}`,
       {
         next: {
           tags: ["LISTINGS"],
         },
       }
     );
-    return res.json();
+    const data = await res.json();
+
+    return {
+      data: data.data,
+      meta: data.meta, // Ensure meta is returned correctly
+    };
   } catch (error: any) {
-    return Error(error);
+    console.error("Error fetching listings:", error);
+    throw new Error(error);
   }
 };
 

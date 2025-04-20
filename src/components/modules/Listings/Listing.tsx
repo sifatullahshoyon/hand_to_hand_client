@@ -1,8 +1,9 @@
 "use client";
 import DeleteConfirmationModal from "@/components/ui/core/HTHModal/DeleteConfirmationModal";
 import { TthTable } from "@/components/ui/core/HTHTable";
+import TablePagination from "@/components/ui/core/HTHTable/TablePagination";
 import { deleteListing } from "@/services/listings";
-import { IListing } from "@/types";
+import { IListing, IMeta } from "@/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { Edit, Trash2 } from "lucide-react";
 import Image from "next/image";
@@ -12,9 +13,10 @@ import { toast } from "sonner";
 
 export type TListingsProps = {
   listings: IListing[];
+  meta: IMeta;
 };
 
-const Listing = ({ listings }: TListingsProps) => {
+const Listing = ({ listings, meta }: TListingsProps) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -139,6 +141,12 @@ const Listing = ({ listings }: TListingsProps) => {
       ) : (
         "No Listings Available"
       )}
+
+      {/* end table */}
+
+      <TablePagination totalPage={meta?.totalPage} />
+
+      {/* delete confirmation modal */}
       <DeleteConfirmationModal
         name={selectedItem}
         isOpen={isModalOpen}

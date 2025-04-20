@@ -12,6 +12,7 @@ import { IListing } from "@/types";
 
 const Products = async () => {
   const { data: products } = await getAllListings();
+  console.log("products => ", products);
 
   return (
     <>
@@ -79,7 +80,7 @@ const Products = async () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-6">
                 {/* Product Cards */}
-                {products?.map((item: IListing, index: number) => (
+                {products?.data?.map((item: IListing, index: number) => (
                   <ProductCart key={index} item={item} />
                 ))}
               </div>

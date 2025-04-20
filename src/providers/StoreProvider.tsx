@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import LoadingSpinner from "@/components/ui/core/loading";
 import { AppStore, makeStore } from "@/redux/store";

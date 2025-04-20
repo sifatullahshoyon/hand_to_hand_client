@@ -93,10 +93,10 @@ const data = {
           title: "Create Listings",
           url: "/user/listings/add-listings",
         },
-        {
-          title: "Update Listings",
-          url: "/user/listings/update-listings",
-        },
+        // {
+        //   title: "Update Listings",
+        //   url: "/user/listings/update-listings",
+        // },
       ],
     },
     {
