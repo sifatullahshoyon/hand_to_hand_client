@@ -23,6 +23,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { logout } from "@/services/authService";
 import { toast } from "sonner";
 import { protectedRoutes } from "@/constants";
+import Link from "next/link";
 
 export function NavUser({
   user,
@@ -99,11 +100,14 @@ export function NavUser({
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
+
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <UserRoundPen />
-                Profile
-              </DropdownMenuItem>
+              <Link href="/user/profile">
+                <DropdownMenuItem>
+                  <UserRoundPen />
+                  Profile
+                </DropdownMenuItem>
+              </Link>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
 

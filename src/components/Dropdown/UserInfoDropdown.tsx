@@ -56,10 +56,12 @@ const UserInfoDropdown = () => {
           {/* my profile start */}
           <DropdownMenuGroup>
             {user && (
-              <DropdownMenuItem className="group cursor-pointer">
-                <User className="group-hover:text-[#EF6291]" />
-                <span className="group-hover:text-[#EF6291]">Profile</span>
-              </DropdownMenuItem>
+              <Link href="/user/profile">
+                <DropdownMenuItem className="group cursor-pointer">
+                  <User className="group-hover:text-[#EF6291]" />
+                  <span className="group-hover:text-[#EF6291]">Profile</span>
+                </DropdownMenuItem>
+              </Link>
             )}
             {!user && (
               <Link href="/login">

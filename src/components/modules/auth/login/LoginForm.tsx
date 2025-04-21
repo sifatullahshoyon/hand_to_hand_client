@@ -62,7 +62,7 @@ const LoginForm = () => {
         if (redirect) {
           router.push(redirect);
         } else {
-          router.push("/profile");
+          router.push("/user/profile");
         }
       } else {
         toast.error(res?.message);

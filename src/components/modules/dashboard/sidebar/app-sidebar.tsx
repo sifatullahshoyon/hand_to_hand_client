@@ -13,6 +13,7 @@ import {
   LayoutDashboard,
   Map,
   PieChart,
+  UserPen,
 } from "lucide-react";
 
 import {
@@ -121,6 +122,12 @@ const data = {
           url: "#",
         },
       ],
+    },
+    {
+      title: "Profile",
+      url: "/user/profile",
+      icon: UserPen,
+      isActive: false,
     },
   ],
   projects: [
