@@ -13,6 +13,7 @@ import {
   Map,
   PieChart,
   UserPen,
+  History,
 } from "lucide-react";
 
 import {
@@ -100,6 +101,18 @@ const data = {
       ],
     },
 
+    {
+      title: "Purchase History",
+      url: "/user/purchase-history",
+      icon: History,
+      isActive: false,
+    },
+    {
+      title: "Sales History",
+      url: "/user/sales-history",
+      icon: History,
+      isActive: false,
+    },
     {
       title: "Profile",
       url: "/user/profile",

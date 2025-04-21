@@ -155,9 +155,9 @@ const VerifyPayment = () => {
             </div>
           </CardContent>
           <CardFooter>
-            <Link href="/order">
+            <Link href="/user/purchase-history">
               <Button className="w-full bg-purple-500 hover:bg-purple-600 text-white cursor-pointer">
-                View Orders
+              purchase history
               </Button>
             </Link>
           </CardFooter>
