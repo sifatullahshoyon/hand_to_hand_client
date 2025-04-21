@@ -12,7 +12,6 @@ import { IListing } from "@/types";
 
 const Products = async () => {
   const { data: products } = await getAllListings();
-  console.log("products => ", products);
 
   return (
     <>

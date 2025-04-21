@@ -1,7 +1,5 @@
 "use client";
 import {
-  CreditCard,
-  Heart,
   LogIn,
   LogOut,
   PanelsTopLeft,
@@ -76,10 +74,6 @@ const UserInfoDropdown = () => {
           <DropdownMenuSeparator />
           {/* start cart  */}
           <DropdownMenuGroup>
-            <DropdownMenuItem className="group cursor-pointer">
-              <Heart className="group-hover:text-[#EF6291]" />
-              <span className="group-hover:text-[#EF6291]">Wish List (0)</span>
-            </DropdownMenuItem>
             {/* End Wish List */}
             {user && (
               <Link href="/cart">
@@ -101,15 +95,6 @@ const UserInfoDropdown = () => {
               </Link>
             )}
             {/* End Dashboard */}
-            {user && (
-              <Link href="/checkout">
-                <DropdownMenuItem className="group cursor-pointer">
-                  <CreditCard className="group-hover:text-[#EF6291]" />
-                  <span className="group-hover:text-[#EF6291]">Checkout</span>
-                </DropdownMenuItem>
-              </Link>
-            )}
-            {/* End Checkout */}
           </DropdownMenuGroup>
           {/* End cart  */}
           <DropdownMenuSeparator />

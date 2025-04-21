@@ -8,7 +8,6 @@ import {
   Command,
   Frame,
   GalleryVerticalEnd,
-  Heart,
   House,
   LayoutDashboard,
   Map,
@@ -100,29 +99,7 @@ const data = {
         // },
       ],
     },
-    {
-      title: "Wishlist",
-      url: "#",
-      icon: Heart,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
+
     {
       title: "Profile",
       url: "/user/profile",
@@ -153,7 +130,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <Link href="/" className="flex flex-wrap justify-center items-center ">
+        <Link
+          href="/"
+          className="flex flex-wrap justify-center items-center mb-6"
+        >
           <Image src={logo} alt="logo" placeholder="blur" width={50} />
           <p className="text-[#1A1A1A] font-bold text-lg text-balance">
             Hand to Hand

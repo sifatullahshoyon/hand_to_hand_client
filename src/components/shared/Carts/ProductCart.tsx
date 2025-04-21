@@ -9,24 +9,64 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { toast } from "sonner";
+import { useState, useEffect } from "react";
 
 const ProductCart = ({ item }: { item: IListing }) => {
   const pathName = usePathname();
   const dispatch = useAppDispatch();
+  const [isInWishlist, setIsInWishlist] = useState(false);
+
+  // Check if the product is in the wishlist on component mount
+  useEffect(() => {
+    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+    const isProductInWishlist = wishlist.some(
+      (wishlistItem: IListing) => wishlistItem._id === item._id
+    );
+    setIsInWishlist(isProductInWishlist);
+  }, [item._id]);
 
   const handleAddToCart = (product: IListing) => {
     dispatch(addProduct(product));
-    toast.success("Item Successfully add to Cart");
+    toast.success("Item successfully added to Cart");
   };
+
+  const handleAddToWishlist = (product: IListing) => {
+    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
+    // Check if the product is already in the wishlist
+    const isProductInWishlist = wishlist.some(
+      (wishlistItem: IListing) => wishlistItem._id === product._id
+    );
+
+    if (isProductInWishlist) {
+      // Remove the product from the wishlist
+      const updatedWishlist = wishlist.filter(
+        (wishlistItem: IListing) => wishlistItem._id !== product._id
+      );
+      localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+      setIsInWishlist(false);
+      toast.success("Product removed from your wishlist!");
+    } else {
+      // Add the product to the wishlist
+      wishlist.push(product);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      setIsInWishlist(true);
+      toast.success("Product added to your wishlist!");
+    }
+  };
+
   return (
-    <Card className="p-4 text-center relative bg-white border-none group hover:shadow-xl transition-all ">
+    <Card className="p-4 text-center relative bg-white border-none group hover:shadow-xl transition-all">
       {pathName !== "/products" ? (
         <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
           Buy
         </span>
       ) : (
-        <span className="absolute top-2 left-2 ">
-          <Heart />
+        <span
+          onClick={() => handleAddToWishlist(item)}
+          className="absolute top-2 left-2 cursor-pointer"
+        >
+          <Heart fill={isInWishlist ? "red" : "none"} stroke="currentColor" />
         </span>
       )}
       <CardContent>
@@ -48,9 +88,9 @@ const ProductCart = ({ item }: { item: IListing }) => {
         </p>
       </CardContent>
       {pathName === "/products" && (
-        <CardFooter className="flex flex-col space-y-2.5 ">
+        <CardFooter className="flex flex-col space-y-2.5">
           <Link href={`/products/${item._id}`} className="w-full">
-            <Button className=" bg-purple-500  text-white hover:bg-purple-600  font-medium cursor-pointer w-full rounded-full">
+            <Button className="bg-purple-500 text-white hover:bg-purple-600 font-medium cursor-pointer w-full rounded-full">
               More Details
             </Button>
           </Link>
