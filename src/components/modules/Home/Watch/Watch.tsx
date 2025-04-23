@@ -187,7 +187,10 @@ const Watch = () => {
       <Container>
         <SectionTitle title="Fashionable Watch Carnival" />
         <Link href="/products">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 pb-6">
+          <div
+            data-aos="fade-down"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 pb-6"
+          >
             {/* Product Cards */}
             {watchesData.map((item, index) => (
               <ProductCart key={index} item={item} />

@@ -4,7 +4,6 @@ import * as React from "react";
 import {
   AudioWaveform,
   BookOpen,
-  Bot,
   Command,
   Frame,
   GalleryVerticalEnd,
@@ -66,25 +65,7 @@ const data = {
       icon: LayoutDashboard,
       isActive: false,
     },
-    {
-      title: "Listings",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
+
     {
       title: "Manage Listings",
       url: "/user/listings",
@@ -94,10 +75,6 @@ const data = {
           title: "Create Listings",
           url: "/user/listings/add-listings",
         },
-        // {
-        //   title: "Update Listings",
-        //   url: "/user/listings/update-listings",
-        // },
       ],
     },
 

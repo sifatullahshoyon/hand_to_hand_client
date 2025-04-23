@@ -44,7 +44,7 @@ const PurchaseHistory = ({ data }: Props) => {
   return (
     <div className="border rounded-lg overflow-hidden">
       <Table className="min-w-full">
-        <TableHeader className="bg-gray-800">
+        <TableHeader className="bg-purple-500 border-0">
           <TableRow>
             <TableHead className="px-4 py-3 text-white">SL Number</TableHead>
             <TableHead className="px-4 py-3 text-white">Order ID</TableHead>

@@ -114,7 +114,10 @@ const Laptop = () => {
       <Container>
         <SectionTitle title="Laptop Hot Collection" />
         <Link href="/products">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 pb-6">
+          <div
+            data-aos="fade-down"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 pb-6"
+          >
             {/* Product Cards */}
             {laptopsData.map((item, index) => (
               <ProductCart key={index} item={item} />

@@ -8,8 +8,8 @@ const ContactUs = () => {
   return (
     <div className="mt-16">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+          <div data-aos="fade-left">
             <h4 className="uppercase tracking-[.25em] text-purple-500 text-xs">
               Contact Us
             </h4>
@@ -62,7 +62,7 @@ const ContactUs = () => {
             </div>
           </div>
           {/* Start Form */}
-          <form>
+          <form data-aos="fade-right">
             <div className="grid grid-cols-2 gap-6 mb-6">
               <Input
                 type="text"

@@ -10,7 +10,10 @@ const GalleryTwo = () => {
   return (
     <div className="mt-16 mb-6">
       <Container>
-        <div className="md:flex md:flex-row flex-wrap lg:flex-nowrap space-y-4 lg:space-y-0 justify-between items-center gap-6">
+        <div
+          data-aos="fade-left"
+          className="md:flex md:flex-row flex-wrap lg:flex-nowrap space-y-4 lg:space-y-0 justify-between items-center gap-6"
+        >
           <div className="hover:shadow-2xl transition-all hover:scale-110 mx-auto">
             <Image
               src={img5}
