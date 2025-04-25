@@ -124,5 +124,3 @@ const Products = ({ products }: ProductsProps) => {
 };
 
 export default Products;
-
-//! ======================= end  =================================

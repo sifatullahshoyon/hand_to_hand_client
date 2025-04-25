@@ -2,6 +2,8 @@ import PurchaseHistory from "@/components/modules/PurchaseHistory/PurchaseHistor
 import { getAllOrders } from "@/services/purchaseHistory";
 import React from "react";
 
+export const dynamic = "force-dynamic"; // 💡 Add this to fix the dynamic cookies issue
+
 const purchaseHistoryPage = async () => {
   const { data } = await getAllOrders();
 

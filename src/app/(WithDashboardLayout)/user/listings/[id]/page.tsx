@@ -3,14 +3,22 @@ import { getAllListings } from "@/services/listings";
 import { IListing } from "@/types";
 import React from "react";
 
-interface UpdateListingPageProps {
-  params: { id: string };
-}
+// interface UpdateListingPageProps {
+//   params: { id: string };
+// }
 
-const UpdateListingPage = async ({ params }: UpdateListingPageProps) => {
-  const { id } = await params;
+const UpdateListingPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) => {
+  const listingId = (await params).id;
+
   const { data } = await getAllListings();
-  const selectedListing = data?.find((listing: IListing) => listing._id === id);
+
+  const selectedListing = data?.find(
+    (listing: IListing) => listing._id === listingId
+  );
 
   if (!selectedListing) {
     return <p>Listing not found</p>;

@@ -23,6 +23,8 @@ import Image from "next/image";
 import { updateSales } from "@/services/sales";
 import { ITransaction, TransactionStatus } from "@/types/transaction";
 
+export const dynamic = "force-dynamic"; // Ensure the page is rendered dynamically
+
 type Props = {
   sales: ITransaction[];
   transactionId: string;

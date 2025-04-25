@@ -52,7 +52,11 @@ const UpdateListingsForm = ({
   // submit handler function
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
-      const res = await updateListing(id, data);
+      const res: {
+        status: boolean;
+        message: string;
+        listingData: IListing | null;
+      } = await updateListing(id, data);
 
       if (res?.status === true) {
         toast.success(res?.message);

@@ -1,5 +1,6 @@
 "use server";
 
+import { IListing } from "@/types";
 import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
@@ -22,7 +23,7 @@ export const createListing = async (userData: FieldValues) => {
     return res.json();
   } catch (error: any) {
     console.error(error);
-    return Error(error);
+    return { data: null as unknown as IListing };
   }
 };
 
@@ -87,7 +88,11 @@ export const getAllListings = async (
 export const updateListing = async (
   listingId: string,
   listingData: FieldValues
-): Promise<any> => {
+): Promise<{
+  status: boolean;
+  message: string;
+  listingData: IListing | null;
+}> => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings/${listingId}`,
@@ -100,10 +105,20 @@ export const updateListing = async (
         body: JSON.stringify(listingData),
       }
     );
+    const data = await res.json();
     revalidateTag("LISTINGS");
-    return res.json();
+    return {
+      status: res.ok,
+      message: data.message || "Listing updated successfully",
+      listingData: data.listingData || null,
+    };
   } catch (error: any) {
-    return Error(error);
+    console.error(error);
+    return {
+      status: false,
+      message: "Failed to update listing",
+      listingData: null,
+    };
   }
 };
 
@@ -128,7 +143,54 @@ export const deleteListing = async (listingId: string): Promise<any> => {
 };
 
 // GET single listings
-export const getSingleListing = async (listingId: string): Promise<any> => {
+// export const getSingleListing = async (
+//   listingId: string
+// ): Promise<{ data: IListing }> => {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings/${listingId}`,
+//       {
+//         next: {
+//           tags: ["LISTINGS"],
+//         },
+//       }
+//     );
+//     // revalidateTag("LISTINGS");
+//     return res.json();
+//   } catch (error: any) {
+//     return Error(error);
+//   }
+// };
+
+//!
+
+// export const getSingleListing = async (
+//   listingId: string
+// ): Promise<{ data: IListing | null }> => {
+//   try {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings/${listingId}`,
+//       {
+//         next: {
+//           tags: ["LISTINGS"],
+//         },
+//       }
+//     );
+//     // revalidateTag("LISTINGS");
+//     return res.json();
+//   } catch (error: any) {
+//     console.error(error);
+//     return { data: null }; // Ensure a value is always returned
+//   } finally {
+//     return { data: null }; // Fallback return to satisfy all code paths
+//   }
+// };
+
+//*
+
+export const getSingleListing = async (
+  listingId: string
+): Promise<{ data: IListing | null }> => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings/${listingId}`,
@@ -138,9 +200,15 @@ export const getSingleListing = async (listingId: string): Promise<any> => {
         },
       }
     );
-    // revalidateTag("LISTINGS");
-    return res.json();
+
+    if (!res.ok) {
+      console.error("Failed to fetch listing:", res.statusText);
+      return { data: null };
+    }
+
+    return await res.json(); // ✅ only return here if successful
   } catch (error: any) {
-    return Error(error);
+    console.error(error);
+    return { data: null };
   }
 };
