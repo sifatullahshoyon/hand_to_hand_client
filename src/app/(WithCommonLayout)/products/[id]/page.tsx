@@ -1,26 +1,38 @@
 import SingleProduct from "@/components/modules/SingleProduct/SingleProduct";
 import { getSingleListing } from "@/services/listings";
 import { Metadata } from "next";
+import { IListing } from "@/types/listing";
 
-interface PageProps {
-  params: { id: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+interface SingleProductPageProps {
+  params: {
+    id: string;
+  };
 }
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
-  const { data: product } = await getSingleListing(params.id);
+}: SingleProductPageProps): Promise<Metadata> {
+  const { data: product }: { data: IListing } = await getSingleListing(
+    params.id
+  );
   return {
-    title: product?.title || "Product Details", // Changed from 'name' to 'title' to match IListing
+    title: product?.title || "Product Details",
     description: product?.description || "View product details",
   };
 }
 
-const SingleProductPage = async ({ params }: PageProps) => {
-  const { data: product } = await getSingleListing(params.id);
+const SingleProductPage = async ({ params }: SingleProductPageProps) => {
+  const listingId = params.id;
 
-  return <SingleProduct product={product} />;
+  const { data: product }: { data: IListing } = await getSingleListing(
+    listingId
+  );
+
+  return (
+    <>
+      <SingleProduct product={product} />
+    </>
+  );
 };
 
 export default SingleProductPage;
