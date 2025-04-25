@@ -28,6 +28,7 @@
 
 import SingleProduct from "@/components/modules/SingleProduct/SingleProduct";
 import { getSingleListing } from "@/services/listings";
+import { IListing } from "@/types";
 
 // interface SingleProductPageProps {
 //   params: {
@@ -45,7 +46,9 @@ const SingleProductPage = async ({
 
   const { data: product } = await getSingleListing(listingId);
 
-  return <> {product && <SingleProduct product={product} />}</>;
+  console.log("product", product);
+
+  return <> {<SingleProduct product={product as IListing} />}</>;
 };
 
 export default SingleProductPage;
