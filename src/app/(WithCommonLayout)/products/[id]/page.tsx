@@ -1,44 +1,26 @@
-// import SingleProduct from "@/components/modules/SingleProduct/SingleProduct";
-// import { getSingleListing } from "@/services/listings";
-
-// const SingleProductPage = async ({ params }: { params: { id: any } }) => {
-//   const listingId = params.id;
-//   console.log("listingId", listingId);
-//   console.log("params", params.id);
-
-//   const { data: product } = await getSingleListing(listingId);
-
-//   return (
-//     <>
-//       <SingleProduct product={product} />
-//     </>
-//   );
-// };
-
-// export default SingleProductPage;
-
-//! =========
-
 import SingleProduct from "@/components/modules/SingleProduct/SingleProduct";
 import { getSingleListing } from "@/services/listings";
+import { Metadata } from "next";
 
-interface SingleProductPageProps {
-  params: {
-    id: string;
+interface PageProps {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { data: product } = await getSingleListing(params.id);
+  return {
+    title: product?.title || "Product Details", // Changed from 'name' to 'title' to match IListing
+    description: product?.description || "View product details",
   };
 }
 
-const SingleProductPage = async ({ params }: SingleProductPageProps) => {
-  const listingId = params.id; // Access the id directly since params is not a Promise
-  console.log("listingId", listingId);
+const SingleProductPage = async ({ params }: PageProps) => {
+  const { data: product } = await getSingleListing(params.id);
 
-  const { data: product } = await getSingleListing(listingId);
-
-  return (
-    <>
-      <SingleProduct product={product} />
-    </>
-  );
+  return <SingleProduct product={product} />;
 };
 
 export default SingleProductPage;
