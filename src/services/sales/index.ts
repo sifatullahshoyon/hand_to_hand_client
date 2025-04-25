@@ -7,7 +7,7 @@ import { FieldValues } from "react-hook-form";
 export const getAllSales = async (sellerID: string) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/sales/${sellerID}`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/sales/${sellerID}`,
       {
         method: "GET",
         headers: {
@@ -32,7 +32,7 @@ export const updateSales = async (
 ): Promise<any> => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/sales/${transactionID}`, // Correct endpoint
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/sales/${transactionID}`, // Correct endpoint
       {
         method: "PUT",
         headers: {

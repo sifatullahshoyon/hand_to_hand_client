@@ -29,7 +29,7 @@ export const middleware = async (request: NextRequest) => {
       // authRoute chara onno kono route a jete caile redirect kore hocche login a
       return NextResponse.redirect(
         new URL(
-          `http://localhost:3000/login?redirectPath=${pathname}`,
+          `https://hand-two-hand-backend.vercel.app/api/login?redirectPath=${pathname}`,
           request.url
         )
       );

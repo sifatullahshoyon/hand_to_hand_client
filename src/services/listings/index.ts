@@ -8,7 +8,7 @@ import { FieldValues } from "react-hook-form";
 export const createListing = async (userData: FieldValues) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings`,
       {
         method: "POST",
         headers: {
@@ -32,7 +32,7 @@ export const createListing = async (userData: FieldValues) => {
 //   try {
 //     console.log("page => ", page, "limit => ", limit);
 //     const res = await fetch(
-//       `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings?limit=${limit}&page=${page}`,
+//       `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings?limit=${limit}&page=${page}`,
 //       {
 //         next: {
 //           tags: ["LISTINGS"],
@@ -59,7 +59,7 @@ export const getAllListings = async (
   searchTerm?: string
 ) => {
   try {
-    let url = `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings?`;
+    let url = `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings?`;
 
     if (limit) url += `limit=${limit}&`;
     if (page) url += `page=${page}&`;
@@ -90,7 +90,7 @@ export const updateListing = async (
 ): Promise<any> => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings/${listingId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings/${listingId}`,
       {
         method: "PUT",
         headers: {
@@ -111,7 +111,7 @@ export const updateListing = async (
 export const deleteListing = async (listingId: string): Promise<any> => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings/${listingId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings/${listingId}`,
       {
         method: "DELETE",
         headers: {
@@ -131,7 +131,7 @@ export const deleteListing = async (listingId: string): Promise<any> => {
 export const getSingleListing = async (listingId: string): Promise<any> => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings/${listingId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings/${listingId}`,
       {
         next: {
           tags: ["LISTINGS"],

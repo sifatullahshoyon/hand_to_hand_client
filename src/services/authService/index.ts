@@ -8,7 +8,7 @@ import { jwtDecode } from "jwt-decode";
 export const registerUser = async (userData: FieldValues) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/users/create-user`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/users/create-user`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -25,7 +25,7 @@ export const registerUser = async (userData: FieldValues) => {
 export const loginUser = async (userData: FieldValues) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/auth/login`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/auth/login`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

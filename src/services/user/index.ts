@@ -5,7 +5,7 @@ export const getAllListings = async (page?: string, limit?: string) => {
   try {
     console.log("page => ", page, "limit => ", limit);
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings?limit=${limit}&page=${page}`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/listings?limit=${limit}&page=${page}`,
       {
         next: {
           tags: ["USER"],
@@ -31,7 +31,7 @@ export const updateUser = async (
 ) => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/users/${userId}`,
+      `${process.env.NEXT_PUBLIC_BASE_API_PROD}/users/${userId}`,
       {
         method: "PUT",
         headers: {
