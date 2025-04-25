@@ -28,7 +28,7 @@ const salesHistoryPage = async () => {
     )
   );
 
-  console.log("Unique Sales History:", uniqueSalesHistory);
+  // console.log("Unique Sales History:", uniqueSalesHistory);
 
   return (
     <div className="container mx-auto py-8">

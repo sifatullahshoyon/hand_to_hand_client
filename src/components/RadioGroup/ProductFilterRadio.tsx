@@ -18,7 +18,11 @@ const FormSchema = z.object({
   }),
 });
 
-const ProductFilterRadio = () => {
+const ProductFilterRadio = ({
+  onAvailabilityChange,
+}: {
+  onAvailabilityChange: (value: "all" | "in stock" | "out of stock") => void;
+}) => {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -26,9 +30,16 @@ const ProductFilterRadio = () => {
     },
   });
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log("Submitted Data:", data);
-  }
+  const onSubmit = (data: z.infer<typeof FormSchema>) => {
+    const value =
+      data.type === "inStock"
+        ? "in stock"
+        : data.type === "outOfStock"
+        ? "out of stock"
+        : "all";
+    onAvailabilityChange(value);
+    console.log("Selected availability:", value);
+  };
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-2">

@@ -29,13 +29,13 @@ const RegistrationForm = () => {
   // form validation
   const form = useForm({
     resolver: zodResolver(registrationSchema),
-    defaultValues: {
-      name: "test user",
-      email: "testuser@gmail.com",
-      phoneNumber: "+880189632145",
-      password: "12345678",
-      confirmPassword: "12345678",
-    },
+    // defaultValues: {
+    //   name: "test user",
+    //   email: "testuser@gmail.com",
+    //   phoneNumber: "+880189632145",
+    //   password: "12345678",
+    //   confirmPassword: "12345678",
+    // },
   });
 
   const { setLoading } = useUser();

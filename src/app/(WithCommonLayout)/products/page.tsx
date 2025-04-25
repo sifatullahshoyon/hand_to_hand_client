@@ -1,10 +1,12 @@
 import Products from "@/components/modules/Products/Products";
-import React from "react";
+import { getAllListings } from "@/services/listings";
 
-const ProductPage = () => {
+const ProductPage = async () => {
+  const { data: products } = await getAllListings();
+
   return (
     <>
-      <Products />
+      <Products products={products} />
     </>
   );
 };

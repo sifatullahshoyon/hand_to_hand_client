@@ -27,22 +27,55 @@ export const createListing = async (userData: FieldValues) => {
 };
 
 // get all listings
-export const getAllListings = async (page?: string, limit?: string) => {
-  try {
-    console.log("page => ", page, "limit => ", limit);
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings?limit=${limit}&page=${page}`,
-      {
-        next: {
-          tags: ["LISTINGS"],
-        },
-      }
-    );
-    const data = await res.json();
 
+// export const getAllListings = async (page?: string, limit?: string) => {
+//   try {
+//     console.log("page => ", page, "limit => ", limit);
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings?limit=${limit}&page=${page}`,
+//       {
+//         next: {
+//           tags: ["LISTINGS"],
+//         },
+//       }
+//     );
+//     const data = await res.json();
+
+//     return {
+//       data: data.data,
+//       meta: data.meta, // Ensure meta is returned correctly
+//     };
+//   } catch (error: any) {
+//     console.error("Error fetching listings:", error);
+//     throw new Error(error);
+//   }
+// };
+
+// services/listings.ts
+
+export const getAllListings = async (
+  page?: string,
+  limit?: string,
+  searchTerm?: string
+) => {
+  try {
+    let url = `${process.env.NEXT_PUBLIC_BASE_API_DEVELOPMENT}/listings?`;
+
+    if (limit) url += `limit=${limit}&`;
+    if (page) url += `page=${page}&`;
+    if (searchTerm) url += `searchTerm=${searchTerm}`;
+
+    const res = await fetch(url, {
+      next: {
+        tags: ["LISTINGS"],
+      },
+    });
+
+    const data = await res.json();
+    // console.log("data => ", data.data, "meta => ", data.meta);
     return {
-      data: data.data,
-      meta: data.meta, // Ensure meta is returned correctly
+      data: data?.data?.data,
+      meta: data.meta,
     };
   } catch (error: any) {
     console.error("Error fetching listings:", error);

@@ -31,10 +31,10 @@ const LoginForm = () => {
   // form validation
   const form = useForm({
     resolver: zodResolver(loginValidationSchema),
-    defaultValues: {
-      email: "testuser@gmail.com",
-      password: "12345678",
-    },
+    // defaultValues: {
+    //   email: "testuser@gmail.com",
+    //   password: "12345678",
+    // },
   });
 
   const { setLoading } = useUser();

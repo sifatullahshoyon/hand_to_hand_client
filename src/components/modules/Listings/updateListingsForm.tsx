@@ -51,10 +51,9 @@ const UpdateListingsForm = ({
 
   // submit handler function
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("data =>", data);
     try {
       const res = await updateListing(id, data);
-      console.log("result => ", res);
+
       if (res?.status === true) {
         toast.success(res?.message);
         form.reset();

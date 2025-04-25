@@ -38,7 +38,6 @@ const CreateListingsForm = () => {
 
   // submit handler function
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log(data);
     try {
       const res = await createListing(data);
       if (res?.status === true) {
@@ -215,7 +214,7 @@ const CreateListingsForm = () => {
                           </FormItem>
                         </RadioGroup>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -269,7 +268,7 @@ const CreateListingsForm = () => {
                           </FormItem>
                         </RadioGroup>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -305,7 +304,7 @@ const CreateListingsForm = () => {
                           </FormItem>
                         </RadioGroup>
                       </FormControl>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />

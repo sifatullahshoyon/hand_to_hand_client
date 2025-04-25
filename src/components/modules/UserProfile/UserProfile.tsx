@@ -28,21 +28,12 @@ const UserProfile = () => {
     _id: user?._id,
   });
 
-  //   const userInfo = {
-  //     name: user?.name || "John Doe",
-  //     email: user?.email || "user@gmail.com",
-  //     phone: user?.phoneNumber || "123-456-7890",
-  //     _id: user?._id,
-  //   };
-
   const handleUpdateUserInfo = async (updatedInfo: {
     name: string;
     phone: string;
   }) => {
     try {
       const response = await updateUser(userInfo._id!, updatedInfo);
-
-      console.log(response, "response from update user");
 
       if (response.success) {
         // Update the local state with the new user info

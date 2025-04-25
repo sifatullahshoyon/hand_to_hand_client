@@ -11,7 +11,7 @@ const UpdateListingPage = async ({ params }: UpdateListingPageProps) => {
   const { id } = await params;
   const { data } = await getAllListings();
   const selectedListing = data?.find((listing: IListing) => listing._id === id);
-  console.log(selectedListing);
+
   if (!selectedListing) {
     return <p>Listing not found</p>;
   }

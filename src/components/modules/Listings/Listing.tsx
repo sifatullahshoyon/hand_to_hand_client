@@ -81,7 +81,17 @@ const Listing = ({ listings, meta }: TListingsProps) => {
       accessorKey: "availability",
       header: () => <div>Availability</div>,
       cell: ({ row }) => (
-        <span className="truncate">{row?.original?.availability}</span>
+        <div>
+          {row?.original?.availability === "in stock" ? (
+            <p className="text-green-500  text-center ">
+              {row?.original?.availability}
+            </p>
+          ) : (
+            <p className="text-red-500  text-center ">
+              {row?.original?.availability}
+            </p>
+          )}
+        </div>
       ),
     },
     {
@@ -136,6 +146,8 @@ const Listing = ({ listings, meta }: TListingsProps) => {
   return (
     <>
       {/* start table */}
+      <h1 className="text-center text-2xl font-bold">Manage Listings</h1>
+      <p className="font-semibold">Total Listing : {listings?.length}</p>
       {listings.length > 0 ? (
         <TthTable data={listings} columns={columns} />
       ) : (

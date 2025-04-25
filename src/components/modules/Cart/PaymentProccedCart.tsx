@@ -31,14 +31,14 @@ const PaymentProccedCart = () => {
     products: { _id: string; orderQuantity: number }[]
   ) => {
     try {
-      console.log("Cart products before filtering:", products);
+      // console.log("Cart products before filtering:", products);
 
       const validProducts = products.map((product) => ({
         product: product._id,
         quantity: product.orderQuantity,
       }));
 
-      console.log("Valid products being sent to backend:", validProducts);
+      // console.log("Valid products being sent to backend:", validProducts);
 
       if (validProducts.length === 0) {
         toast.error("No valid products to place an order. Please try again.");

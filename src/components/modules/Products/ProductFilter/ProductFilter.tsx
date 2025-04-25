@@ -4,10 +4,18 @@ import ProductLocation from "@/components/RadioGroup/ProductLocation";
 import ProductPriceRanage from "@/components/Range/ProductPriceRanage";
 import React from "react";
 
-const ProductFilter = () => {
+type ProductFilterProps = {
+  onAvailabilityChange: (
+    availability: "all" | "in stock" | "out of stock"
+  ) => void;
+};
+
+const ProductFilter: React.FC<ProductFilterProps> = ({
+  onAvailabilityChange,
+}) => {
   return (
     <>
-      <ProductFilterRadio />
+      <ProductFilterRadio onAvailabilityChange={onAvailabilityChange} />
       {/* End Product Filter Radio */}
       <ProductPriceRanage />
       {/* End Product Price Range */}
