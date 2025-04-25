@@ -8,7 +8,7 @@ interface SingleProductPageProps {
 }
 
 const SingleProductPage = async ({ params }: SingleProductPageProps) => {
-  const listingId = await params.id;
+  const listingId = params.id; // No need to await params.id
 
   const { data: product } = await getSingleListing(listingId);
 
