@@ -22,14 +22,15 @@
 import SingleProduct from "@/components/modules/SingleProduct/SingleProduct";
 import { getSingleListing } from "@/services/listings";
 
-const SingleProductPage = async ({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) => {
-  const listingId = await params.id;
+interface SingleProductPageProps {
+  params: {
+    id: string;
+  };
+}
+
+const SingleProductPage = async ({ params }: SingleProductPageProps) => {
+  const listingId = params.id; // Access the id directly since params is not a Promise
   console.log("listingId", listingId);
-  console.log("params", await params.id);
 
   const { data: product } = await getSingleListing(listingId);
 
