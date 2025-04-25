@@ -3,6 +3,8 @@ import { getSingleListing } from "@/services/listings";
 
 const SingleProductPage = async ({ params }: { params: { id: string } }) => {
   const listingId = params.id;
+  console.log("listingId", listingId);
+  console.log("params", params.id);
 
   const { data: product } = await getSingleListing(listingId);
 
