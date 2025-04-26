@@ -2,6 +2,12 @@
 
 _A Marketplace for Buying & Selling Used Items_
 
+![Next.js](https://img.shields.io/badge/Next.js-000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-000?style=for-the-badge&logo=vercel&logoColor=white)
+
 Welcome to the **HandToHand** web application — a modern, user-friendly platform designed to make buying and selling used products seamless, secure, and efficient.
 
 ## 🔗 Live Preview
@@ -125,7 +131,9 @@ secondhand-client/
 
 ## 📸 Screenshots
 
-> (https://i.ibb.co.com/395HCQ8V/hand-to-hand-frontend-vercel-app-1.png)
+### 🏠 Home Page
+
+![Home](https://i.ibb.co.com/395HCQ8V/hand-to-hand-frontend-vercel-app-1.png)
 
 ---
 
@@ -137,3 +145,27 @@ secondhand-client/
 git clone https://github.com/sifatullahshoyon/hand_to_hand_client.git
 cd hand_to_hand_client
 ```
+
+2. **Install Dependencies**
+
+npm install
+
+3. **Configure Environment Variables**
+
+NEXT_PUBLIC_API_URL=https://your-backend-api-url.com
+NEXT_PUBLIC_JWT_SECRET=your_jwt_secret
+
+4. **Run Locally**
+
+npm run dev
+
+📦 Deployment
+
+Frontend: Vercel
+Backend: Vercel
+
+📬 Contact
+For any queries or collaboration ideas, feel free to reach out:
+
+📧 sifatullah.shoyon@gmail.com
+[ LinkedIn](https://www.linkedin.com/in/sifatullahshoyon/)
