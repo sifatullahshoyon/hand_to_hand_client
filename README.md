@@ -75,7 +75,26 @@ Users can both buy and sell items using a **single unified role**. Additionally,
 
 ## 🗂️ Project Structure
 
-. ├── components/ ├── pages/ │ ├── index.tsx # Home │ ├── login.tsx # Login │ ├── products.tsx # Browse Listings │ └── dashboard/ │ ├── index.tsx │ ├── profile.tsx │ ├── listing.tsx │ ├── purchase-history.tsx │ ├── sales-history.tsx │ └── admin/ (optional) ├── utils/ ├── services/ # API functions └── styles/
+secondhand-client/
+├── public/ # Static files
+├── src/
+│ ├── components/ # Reusable components
+│ ├── contexts/ # React contexts
+│ ├── hooks/ # Custom hooks
+│ ├── lib/ # Utility functions
+│ ├── pages/ # Next.js pages
+│ │ ├── api/ # API routes (if using Next.js API)
+│ │ ├── dashboard/ # User dashboard pages
+│ │ ├── products/ # Product-related pages
+│ │ ├── \_app.tsx # Main app component
+│ │ └── index.tsx # Home page
+│ ├── styles/ # Global styles
+│ ├── types/ # TypeScript type definitions
+│ └── utils/ # Utility functions
+├── .env.local # Environment variables
+├── next.config.js # Next.js configuration
+├── package.json # Project dependencies
+└── tsconfig.json # TypeScript configuration
 
 ---
 
@@ -106,7 +125,7 @@ Users can both buy and sell items using a **single unified role**. Additionally,
 
 ## 📸 Screenshots
 
-> (![Add relevant UI screenshots here](https://i.ibb.co.com/395HCQ8V/hand-to-hand-frontend-vercel-app-1.png))
+> (https://i.ibb.co.com/395HCQ8V/hand-to-hand-frontend-vercel-app-1.png)
 
 ---
 
