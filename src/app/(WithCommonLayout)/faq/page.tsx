@@ -43,7 +43,7 @@ const FaqPage = () => {
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center lg:h-[90vh] my-6">
           {/* content section */}
-          <div>
+          <div data-aos="fade-right">
             <h1 className="text-3xl md:text-5xl py-6 font-bold text-balance text-[#1A1A1A] leading-normal">
               FREQUENTLY ASKED <br />
               <span className="text-purple-500">QUESTIONS</span>
@@ -67,7 +67,7 @@ const FaqPage = () => {
             </Accordion>
           </div>
           {/* img section */}
-          <div>
+          <div data-aos="fade-left">
             <Image src={faq} alt="faq img" placeholder="blur" loading="lazy" />
           </div>
         </div>

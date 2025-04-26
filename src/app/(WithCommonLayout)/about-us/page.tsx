@@ -22,7 +22,7 @@ const AboutUsPage = () => {
         {/* start about us */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-6">
           {/* img section */}
-          <div>
+          <div data-aos="fade-right">
             <Image
               src={team}
               alt="team photo"
@@ -32,7 +32,7 @@ const AboutUsPage = () => {
             />
           </div>
           {/* text section */}
-          <div>
+          <div data-aos="fade-left">
             <h1 className="text-3xl text-[#1A1A1A] font-bold">
               About <span className="text-purple-500">Hand to Hand</span>
             </h1>
@@ -56,7 +56,7 @@ const AboutUsPage = () => {
         {/* End about us */}
 
         {/* start our journey */}
-        <div className="mt-16">
+        <div className="mt-16" data-aos="fade-up">
           <h1 className="text-3xl text-[#1A1A1A] font-bold">
             Our <span className="text-purple-500">Journey</span>
           </h1>
@@ -77,7 +77,7 @@ const AboutUsPage = () => {
         {/* start our goal */}
         <div className="mt-16 mb-6 grid grid-cols-1 md:grid-cols-2 justify-between gap-10">
           {/* img section */}
-          <div>
+          <div data-aos="fade-right">
             <h1 className="text-3xl text-[#1A1A1A] font-bold">
               Our <span className="text-purple-500">Mission</span>
             </h1>
@@ -92,7 +92,7 @@ const AboutUsPage = () => {
             </p>
           </div>
           {/* text section */}
-          <div>
+          <div data-aos="fade-left">
             <h1 className="text-3xl text-[#1A1A1A] font-bold">
               Our <span className="text-purple-500">Vision</span>
             </h1>

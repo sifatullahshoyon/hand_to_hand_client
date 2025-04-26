@@ -98,7 +98,9 @@ const Products = ({ products }: ProductsProps) => {
               </div>
 
               {/* ✅ Product Filter with props */}
-              <ProductFilter onAvailabilityChange={setAvailability} />
+              <div data-aos="fade-right">
+                <ProductFilter onAvailabilityChange={setAvailability} />
+              </div>
             </div>
 
             {/* 🛒 Product Listing */}
@@ -110,7 +112,10 @@ const Products = ({ products }: ProductsProps) => {
                 <ProductSortingByPrice />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-6">
+              <div
+                data-aos="fade-left"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-6"
+              >
                 {filteredProducts.map((item, index) => (
                   <ProductCart key={index} item={item} />
                 ))}
