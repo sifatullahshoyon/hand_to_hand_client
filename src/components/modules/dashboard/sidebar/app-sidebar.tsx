@@ -13,6 +13,7 @@ import {
   PieChart,
   UserPen,
   History,
+  Heart,
 } from "lucide-react";
 
 import {
@@ -88,6 +89,12 @@ const data = {
       title: "Sales History",
       url: "/user/sales-history",
       icon: History,
+      isActive: false,
+    },
+    {
+      title: "Wishlist",
+      url: "/user/wishlist",
+      icon: Heart,
       isActive: false,
     },
     {

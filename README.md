@@ -152,8 +152,10 @@ cd hand_to_hand_client
 
 3. **Configure Environment Variables**
 
-`NEXT_PUBLIC_API_URL=https://your-backend-api-url.com`
-`NEXT_PUBLIC_JWT_SECRET=your_jwt_secret`
+```
+NEXT_PUBLIC_API_URL=https://your-backend-api-url.com
+NEXT_PUBLIC_JWT_SECRET=your_jwt_secret
+```
 
 4. **Run Locally**
 
