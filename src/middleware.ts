@@ -33,7 +33,7 @@ export const middleware = async (request: NextRequest) => {
         //   request.url
         // )
         new URL(
-          `https://hand-to-hand-client.vercel.app/login?redirectPath=${pathname}`,
+          `https://hand-to-hand-frontend.vercel.app/login?redirectPath=${pathname}`,
           request.url
         )
       );

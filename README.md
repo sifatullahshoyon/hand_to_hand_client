@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HandToHand 🛒
 
-## Getting Started
+_A Marketplace for Buying & Selling Used Items_
 
-First, run the development server:
+Welcome to the **HandToHand** web application — a modern, user-friendly platform designed to make buying and selling used products seamless, secure, and efficient.
+
+## 🔗 Live Preview
+
+[Visit Live Site](https://hand-to-hand-frontend.vercel.app/)
+
+---
+
+## 📌 Project Overview
+
+SecondHand is a full-stack marketplace application where users can:
+
+- Post listings for used items
+- Browse products with advanced search and filters
+- Communicate with sellers
+- Manage their sales, purchases, and profile
+
+Users can both buy and sell items using a **single unified role**. Additionally, there's an **admin panel** for moderation and management.
+
+---
+
+## 🚀 Features
+
+### 👤 User Features
+
+- Custom authentication using email/phone & password
+- JWT-based secure login system
+- Bcrypt password hashing
+- Personal dashboard with:
+  - ✅ Add, edit, and delete listings
+  - 📦 View purchase & sales history
+  - ❤️ Wishlist items
+  - 🧾 Manage personal profile
+
+### 🛍️ Product Listings
+
+- Add items with images, condition, price & category
+- Advanced search and filtering
+- Mark items as sold
+
+### 📩 Communication
+
+- Buyer-Seller messaging system
+
+### 🛠️ Admin Features
+
+- Ban/unban users
+- Delete or review listings
+
+---
+
+## ⚙️ Tech Stack
+
+### Frontend:
+
+- **Next.js**
+- **TypeScript**
+- **Tailwind CSS**
+- **Axios / React Query**
+- **JWT**
+
+### Backend:
+
+> Hosted separately
+
+- **Express.js**
+- **MongoDB**
+- **JWT & bcrypt**
+
+---
+
+## 🗂️ Project Structure
+
+. ├── components/ ├── pages/ │ ├── index.tsx # Home │ ├── login.tsx # Login │ ├── products.tsx # Browse Listings │ └── dashboard/ │ ├── index.tsx │ ├── profile.tsx │ ├── listing.tsx │ ├── purchase-history.tsx │ ├── sales-history.tsx │ └── admin/ (optional) ├── utils/ ├── services/ # API functions └── styles/
+
+---
+
+## 🧪 Available Routes
+
+### Public:
+
+- `/` – Home
+- `/login` – Login/Register
+- `/products` – Browse all listings
+
+### Authenticated Users:
+
+- `/dashboard` – Overview
+- `/dashboard/listing` – Manage your items
+- `/dashboard/purchase-history` – View purchases
+- `/dashboard/sales-history` – View sales
+- `/dashboard/profile` – Manage profile
+- `/messages` – Chat with sellers
+
+### Admin (Optional):
+
+- `/dashboard/admin` – Admin panel
+- `/dashboard/admin/user-management`
+- `/dashboard/admin/listings`
+
+---
+
+## 📸 Screenshots
+
+> (![Add relevant UI screenshots here](https://i.ibb.co.com/395HCQ8V/hand-to-hand-frontend-vercel-app-1.png))
+
+---
+
+## 🧑‍💻 Setup & Installation
+
+1. **Clone the Repository**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/sifatullahshoyon/hand_to_hand_client.git
+cd hand_to_hand_client
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
