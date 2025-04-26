@@ -148,24 +148,25 @@ cd hand_to_hand_client
 
 2. **Install Dependencies**
 
-npm install
+`npm install`
 
 3. **Configure Environment Variables**
 
-NEXT_PUBLIC_API_URL=https://your-backend-api-url.com
-NEXT_PUBLIC_JWT_SECRET=your_jwt_secret
+`NEXT_PUBLIC_API_URL=https://your-backend-api-url.com`
+`NEXT_PUBLIC_JWT_SECRET=your_jwt_secret`
 
 4. **Run Locally**
 
-npm run dev
+`npm run dev`
 
 📦 Deployment
 
-Frontend: Vercel
-Backend: Vercel
+- Frontend: Vercel
+- Backend: Vercel
 
 📬 Contact
+
 For any queries or collaboration ideas, feel free to reach out:
 
-📧 sifatullah.shoyon@gmail.com
-[ LinkedIn](https://www.linkedin.com/in/sifatullahshoyon/)
+- 📧 sifatullah.shoyon@gmail.com
+- [ LinkedIn](https://www.linkedin.com/in/sifatullahshoyon/)
