@@ -1,13 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./HeroSection.module.css";
 import { Input } from "@/components/ui/input";
 import Container from "@/components/shared/Container";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const HeroSection = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
+
   // Animation variants for the text
   const textVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -28,6 +32,15 @@ const HeroSection = () => {
     "Hand To Hand",
     "Today!",
   ];
+
+  // Handle search submission
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim() !== "") {
+      router.push(`/products?search=${encodeURIComponent(searchTerm)}`);
+    }
+  };
+
   return (
     <div className={`${styles.banner}`}>
       <Container>
@@ -50,13 +63,18 @@ const HeroSection = () => {
               </motion.span>
             ))}
           </h1>
-          {/* start search functionality */}
-          <div className="flex w-full max-w-1/2 items-center space-x-2 mb-16 mx-auto">
+          {/* Start search functionality */}
+          <form
+            onSubmit={handleSearch}
+            className="flex w-full max-w-1/2 items-center space-x-2 mb-16 mx-auto"
+          >
             <div className="relative w-full">
               <Input
                 type="text"
                 placeholder="Search By Product Name"
-                className=" bg-white focus:ring-2 focus:ring-purple-500  py-5 pl-10 placeholder:text-#b8afaf]"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="bg-white focus:ring-2 focus:ring-purple-500 py-5 pl-10 placeholder:text-[#b8afaf]"
               />
               <Search className="absolute top-1/2 left-6 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out text-[#b8afaf]" />
             </div>
@@ -66,7 +84,7 @@ const HeroSection = () => {
             >
               Search
             </Button>
-          </div>
+          </form>
           {/* End search functionality */}
         </div>
       </Container>
