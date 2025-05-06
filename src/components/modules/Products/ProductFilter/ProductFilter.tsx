@@ -8,16 +8,18 @@ type ProductFilterProps = {
   onAvailabilityChange: (
     availability: "all" | "in stock" | "out of stock"
   ) => void;
+  onPriceChange: (minPrice: number, maxPrice: number) => void;
 };
 
 const ProductFilter: React.FC<ProductFilterProps> = ({
   onAvailabilityChange,
+  onPriceChange,
 }) => {
   return (
     <>
       <ProductFilterRadio onAvailabilityChange={onAvailabilityChange} />
       {/* End Product Filter Radio */}
-      <ProductPriceRanage />
+      <ProductPriceRanage onPriceChange={onPriceChange} />
       {/* End Product Price Range */}
       <ProductCategoryCheckbox />
       {/* End Product Price Range */}

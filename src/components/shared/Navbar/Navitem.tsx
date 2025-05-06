@@ -10,7 +10,7 @@ const Navitem = () => {
   const pathname = usePathname();
 
   return (
-    <div className="md:flex justify-between items-center w-full hidden">
+    <div className="md:flex justify-between items-center w-full hidden ">
       {/* logo */}
       <Link href="/" className="flex justify-center items-center gap-2">
         <Image

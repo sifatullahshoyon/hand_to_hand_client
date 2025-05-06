@@ -1,7 +1,7 @@
 .banner {
   background-image: url("../../../../app/assets/img/banner/hero.jpg"),
     linear-gradient(rgba(0, 0, 0, 0.815), rgba(0, 0, 0, 0.815));
-  height: 100vh;
+  height: 80vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

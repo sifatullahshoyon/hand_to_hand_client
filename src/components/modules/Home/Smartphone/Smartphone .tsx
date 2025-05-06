@@ -16,6 +16,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16849134262051952318.webp",
     userID: "user1",
+    category: "mobiles",
   },
   {
     _id: "2",
@@ -27,6 +28,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1697438852151547196.webp",
     userID: "user2",
+    category: "mobiles",
   },
   {
     _id: "3",
@@ -37,6 +39,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16850213311425534601.webp",
     userID: "user3",
+    category: "mobiles",
   },
   {
     _id: "4",
@@ -47,6 +50,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16850134092132952576.webp",
     userID: "user4",
+    category: "mobiles",
   },
   {
     _id: "5",
@@ -57,6 +61,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1685001957877953062.webp",
     userID: "user5",
+    category: "mobiles",
   },
   {
     _id: "6",
@@ -67,6 +72,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1704524214568200227.webp",
     userID: "user6",
+    category: "mobiles",
   },
   {
     _id: "7",
@@ -77,6 +83,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/17182710551080519463.webp",
     userID: "user7",
+    category: "mobiles",
   },
   {
     _id: "8",
@@ -88,6 +95,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1726410560706888292.webp",
     userID: "user8",
+    category: "mobiles",
   },
   {
     _id: "9",
@@ -98,6 +106,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/170426580681418869.webp",
     userID: "user9",
+    category: "mobiles",
   },
   {
     _id: "10",
@@ -108,6 +117,7 @@ export const smartphonesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1714214411527697784.webp",
     userID: "user10",
+    category: "mobiles",
   },
 ];
 

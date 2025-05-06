@@ -11,6 +11,14 @@ export interface IListing {
   color?: string;
   createdAt?: string;
   updatedAt?: string;
+  category:
+    | "mobiles"
+    | "electronics"
+    | "vehicles"
+    | "homeAndLiving"
+    | "womensFashion"
+    | "MensFashion"
+    | "hobbiesAndSports";
   __v?: number;
   children?: IListing[];
 }

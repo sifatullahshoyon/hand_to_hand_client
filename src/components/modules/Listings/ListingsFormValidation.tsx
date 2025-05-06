@@ -43,4 +43,18 @@ export const listingFormValidationSchema = z.object({
   availability: z.enum(["in stock", "out of stock"], {
     required_error: "Availability is required",
   }),
+  category: z.enum(
+    [
+      "mobiles",
+      "electronics",
+      "vehicles",
+      "homeAndLiving",
+      "womensFashion",
+      "MensFashion",
+      "hobbiesAndSports",
+    ],
+    {
+      required_error: "Category is required",
+    }
+  ),
 });

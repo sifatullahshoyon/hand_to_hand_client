@@ -15,6 +15,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16851654191184568877.webp",
     userID: "user1",
+    category: "electronics",
   },
   {
     _id: "2",
@@ -25,6 +26,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1685186575392313556.webp",
     userID: "user2",
+    category: "electronics",
   },
   {
     _id: "3",
@@ -35,6 +37,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16851865551162362832.webp",
     userID: "user3",
+    category: "electronics",
   },
   {
     _id: "4",
@@ -45,6 +48,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/17271675301827375026.webp",
     userID: "user4",
+    category: "electronics",
   },
   {
     _id: "5",
@@ -55,6 +59,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16851860051231278524.webp",
     userID: "user5",
+    category: "electronics",
   },
   {
     _id: "6",
@@ -65,6 +70,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16851859051447280524.webp",
     userID: "user6",
+    category: "electronics",
   },
   {
     _id: "7",
@@ -75,6 +81,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16851856511247453815.webp",
     userID: "user7",
+    category: "electronics",
   },
   {
     _id: "8",
@@ -85,6 +92,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16851854321309724972.webp",
     userID: "user8",
+    category: "electronics",
   },
   {
     _id: "9",
@@ -95,6 +103,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1696488136445198977.webp",
     userID: "user9",
+    category: "electronics",
   },
   {
     _id: "10",
@@ -105,6 +114,7 @@ export const laptopsData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16851864411794513545.webp",
     userID: "user10",
+    category: "electronics",
   },
 ];
 

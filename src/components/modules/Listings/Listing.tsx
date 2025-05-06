@@ -78,6 +78,13 @@ const Listing = ({ listings, meta }: TListingsProps) => {
       ),
     },
     {
+      accessorKey: "category",
+      header: () => <div>Category</div>,
+      cell: ({ row }) => (
+        <span className="truncate">{row?.original?.category}</span>
+      ),
+    },
+    {
       accessorKey: "availability",
       header: () => <div>Availability</div>,
       cell: ({ row }) => (

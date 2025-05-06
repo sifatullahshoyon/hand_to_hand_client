@@ -44,7 +44,7 @@ const HeroSection = () => {
   return (
     <div className={`${styles.banner}`}>
       <Container>
-        <div className="flex flex-col justify-center items-center h-screen">
+        <div className="flex flex-col justify-center items-center h-[80vh]">
           <h1 className="text-[40px] md:text-6xl font-bold text-white leading-[1.5] tracking-wide text-center mb-11 text-balance">
             {words.map((word, index) => (
               <motion.span

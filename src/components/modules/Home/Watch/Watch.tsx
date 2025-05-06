@@ -5,79 +5,6 @@ import { IListing } from "@/types";
 import Link from "next/link";
 import React from "react";
 
-// const watchesData = [
-//   {
-//     _id: "1",
-//     title: "Seiko watch 5 GMT SKX01 Grapevine",
-//     price: "54,000",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/16963460981455923451.webp",
-//   },
-//   {
-//     _id: "2",
-//     title: "Seiko watch 5 GMT SKX01 Blueberry",
-//     price: "54,000",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/16963458811770821092.webp",
-//   },
-//   {
-//     _id: "3",
-//     title: "Versus Versace Echo Park Collection Luxury",
-//     price: "25,200",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/1699684953831211057.webp",
-//   },
-//   {
-//     _id: "4",
-//     title: "Casio MTP-1302D-1A1",
-//     price: "1500",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/17045119941356272531.webp",
-//   },
-//   {
-//     _id: "5",
-//     title: "Casio MTS-100D-2AV",
-//     price: "9500",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/170427703669924080.webp",
-//   },
-//   {
-//     _id: "6",
-//     title: "Casio LF-20W-3A",
-//     price: "3700",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/17043072961383969508.webp",
-//   },
-//   {
-//     _id: "7",
-//     title: "Casio LF-20W-8A2",
-//     price: "3900",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/17043133381095338580.webp",
-//   },
-//   {
-//     _id: "8",
-//     title: "Casio LF-20W-1A",
-//     price: "4,500",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/17043133381095338580.webp",
-//   },
-//   {
-//     _id: "9",
-//     title: "Casio CA-53WF-8B",
-//     price: "3,650",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/1704343350743063168.webp",
-//   },
-//   {
-//     _id: "10",
-//     title: "Casio CA-53WF-3B",
-//     price: "3,650",
-//     images:
-//       "https://d3qqewlrl1nyfn.cloudfront.net/product/1704346158557625373.webp",
-//   },
-// ];
-
 const watchesData: IListing[] = [
   {
     _id: "1",
@@ -88,6 +15,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16963460981455923451.webp",
     userID: "user1",
+    category: "electronics",
   },
   {
     _id: "2",
@@ -98,6 +26,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/16963458811770821092.webp",
     userID: "user1",
+    category: "electronics",
   },
   {
     _id: "3",
@@ -108,6 +37,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1699684953831211057.webp",
     userID: "user2",
+    category: "electronics",
   },
   {
     _id: "4",
@@ -118,6 +48,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/17045119941356272531.webp",
     userID: "user3",
+    category: "electronics",
   },
   {
     _id: "5",
@@ -128,6 +59,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/170427703669924080.webp",
     userID: "user4",
+    category: "electronics",
   },
   {
     _id: "6",
@@ -138,6 +70,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/17043072961383969508.webp",
     userID: "user4",
+    category: "electronics",
   },
   {
     _id: "7",
@@ -148,6 +81,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/17043133381095338580.webp",
     userID: "user5",
+    category: "electronics",
   },
   {
     _id: "8",
@@ -158,6 +92,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/17043133381095338580.webp",
     userID: "user5",
+    category: "electronics",
   },
   {
     _id: "9",
@@ -168,6 +103,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1704343350743063168.webp",
     userID: "user6",
+    category: "electronics",
   },
   {
     _id: "10",
@@ -178,6 +114,7 @@ const watchesData: IListing[] = [
     images:
       "https://d3qqewlrl1nyfn.cloudfront.net/product/1704346158557625373.webp",
     userID: "user6",
+    category: "electronics",
   },
 ];
 

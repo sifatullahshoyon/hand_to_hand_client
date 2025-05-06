@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="bg-purple-500 mx-auto">
       <Container>
         <div className="flex flex-col items-center justify-center h-full pb-1 pt-24 lg:py-0 lg:h-[400px]">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 pb-6 md:pt-20 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 pb-6 md:pt-20 gap-6">
             {/* logo */}
             <div>
               <Link
@@ -56,7 +56,7 @@ const Footer = () => {
               </div>
             </div>
             {/* our company */}
-            <div>
+            {/* <div>
               <h4 className="text-lg font-bold text-white  pb-4">
                 Additional Information
               </h4>
@@ -87,7 +87,7 @@ const Footer = () => {
                   Affiliate
                 </Link>
               </div>
-            </div>
+            </div> */}
             {/* About Our Shrefre */}
             <div>
               <h4 className="text-lg font-bold text-white  pb-4">

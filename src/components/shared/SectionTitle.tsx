@@ -5,7 +5,7 @@ import { TextEffect } from "../../../components/motion-primitives/text-effect";
 
 const SectionTitle = ({ title }: { title: string }) => {
   return (
-    <div className="flex items-center justify-between mb-6 px-2">
+    <div className="flex items-center justify-between mb-8 px-2">
       <h2 className="text-2xl font-bold text-[#1A1A1A] text-balance border-l-4 border-purple-500 pl-2">
         <TextEffect per="char" preset="fade">
           {title}

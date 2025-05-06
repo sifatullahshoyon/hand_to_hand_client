@@ -31,7 +31,7 @@ interface ListingPageProps {
 const ListingPage = async ({ searchParams }: ListingPageProps) => {
   const resolvedSearchParams = await searchParams; // Await the Promise to resolve
   const page = resolvedSearchParams.page || "1"; // Default to page 1 if not provided
-  const limit = resolvedSearchParams.limit || "20"; // Default to limit 20 if not provided
+  const limit = resolvedSearchParams.limit || "10"; // Default to limit 20 if not provided
 
   const { data, meta } = await getAllListings(page, limit);
 
