@@ -26,15 +26,13 @@ import { loginValidationSchema } from "./loginValidation";
 import { loginUser } from "@/services/authService";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/UserContext";
+import { useState } from "react";
 
 const LoginForm = () => {
+  const [accepted, setAccepted] = useState(false);
   // form validation
   const form = useForm({
     resolver: zodResolver(loginValidationSchema),
-    // defaultValues: {
-    //   email: "testuser@gmail.com",
-    //   password: "12345678",
-    // },
   });
 
   const { setLoading } = useUser();
@@ -44,21 +42,18 @@ const LoginForm = () => {
   const redirect = searchParams.get("redirectPath");
   const router = useRouter();
 
-  // Destructure form value
   const {
     formState: { isSubmitting },
+    setValue, // <<== এটা ইউজ করব ফিল্ড সেট করতে
   } = form;
 
   // submit handler function
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
       const res = await loginUser(data);
-
       setLoading(true);
-
       if (res?.status === true) {
         toast.success(res?.message);
-        // redirect
         if (redirect) {
           router.push(redirect);
         } else {
@@ -72,15 +67,63 @@ const LoginForm = () => {
     }
   };
 
+  // ======== New: Credential fill function =========
+  const fillCredentials = (type: "user" | "admin" | "superAdmin") => {
+    if (type === "user") {
+      setValue("email", "jakirstor@gmail.com");
+      setValue("password", "12345678");
+    }
+    //  else if (type === "admin") {
+    //   setValue("email", "admin@gmail.com");
+    //   setValue("password", "12345678");
+    // } else if (type === "superAdmin") {
+    //   setValue("email", "superadmin@gmail.com");
+    //   setValue("password", "12345678");
+    // }
+  };
+
   return (
-    <div className="w-full h-full flex flex-col justify-center shadow-none overflow-hidden rounded">
-      <Card className="md:w-4/5 h-full mx-auto flex flex-col justify-center shadow-none overflow-hidden rounded border-none">
+    <>
+      <Card className="w-full h-full mx-auto flex flex-col justify-center shadow-none overflow-hidden rounded border-none">
         <CardHeader>
           <CardDescription className=" text-[#1A1A1A] text-xl text-center font-bold">
             Sign in to <span className="text-purple-500 ">Hand To Hand</span>
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {/* Demo Credential Section */}
+          <div className="mb-4 text-center">
+            <h4 className="text-purple-500 font-semibold mb-2">
+              Demo Credential:
+            </h4>
+            <div className="flex flex-wrap justify-center gap-2">
+              <Button
+                variant="default"
+                className=" text-white text-sm bg-gray-500 hover:bg-gray-600"
+                type="button"
+                onClick={() => fillCredentials("user")}
+              >
+                User Credentials
+              </Button>
+              {/* <Button
+                variant="outline"
+                className="bg-blue-500 hover:bg-blue-600 text-white text-sm"
+                type="button"
+                onClick={() => fillCredentials("admin")}
+              >
+                Admin Credentials
+              </Button>
+              <Button
+                variant="outline"
+                className="bg-blue-500 hover:bg-blue-600 text-white text-sm"
+                type="button"
+                onClick={() => fillCredentials("superAdmin")}
+              >
+                Super Admin Credentials
+              </Button> */}
+            </div>
+          </div>
+
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
@@ -107,7 +150,6 @@ const LoginForm = () => {
                   </FormItem>
                 )}
               />
-              {/* End Email  */}
               <FormField
                 control={form.control}
                 name="password"
@@ -130,19 +172,19 @@ const LoginForm = () => {
                   </FormItem>
                 )}
               />
-              {/* End Password */}
               <div className="flex flex-col md:flex-row justify-between items-center space-y-1.5">
-                <LoginCheckbox />
+                <LoginCheckbox accepted={accepted} setAccepted={setAccepted} />
                 <Link
                   href="/"
-                  className="md:text-right text-xs pt-1 md:pt-0  font-normal hover:text-purple-500 cursor-pointer underline"
+                  className="md:text-right text-xs pt-1 md:pt-0 font-normal hover:text-purple-500 cursor-pointer underline"
                 >
                   Forgot Password
                 </Link>
               </div>
               <Button
                 type="submit"
-                className="w-full  bg-purple-500 hover:bg-purple-600 text-white tracking-wide cursor-pointer"
+                className="w-full bg-purple-500 hover:bg-purple-600 text-white tracking-wide cursor-pointer"
+                disabled={!accepted}
               >
                 {isSubmitting ? (
                   <Loader2 className="animate-spin" />
@@ -155,18 +197,18 @@ const LoginForm = () => {
         </CardContent>
         <CardContent>
           <Divider />
-          <p className=" text-xs text-[#1A1A1A] text-center mt-2">
+          <p className="text-xs text-[#1A1A1A] text-center mt-2">
             Don&apos;t have an account? Please{" "}
             <Link
               href="/registration"
-              className="text-purple-500 hover:underline "
+              className="text-purple-500 hover:underline"
             >
               Sign up
             </Link>
           </p>
         </CardContent>
       </Card>
-    </div>
+    </>
   );
 };
 

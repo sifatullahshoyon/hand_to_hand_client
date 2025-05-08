@@ -6,7 +6,7 @@ import { Globe, MailOpen, MapPin, PhoneCall } from "lucide-react";
 
 const ContactUs = () => {
   return (
-    <div className="mt-16">
+    <div id="contact-us" className="mt-16">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
           <div data-aos="fade-left">

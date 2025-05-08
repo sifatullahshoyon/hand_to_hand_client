@@ -23,7 +23,7 @@ const Footer = () => {
               </Link>
 
               {/* social icons */}
-              <div className="flex justify-start items-center flex-wrap gap-4 mt-6">
+              <div className="flex justify-start items-center flex-wrap gap-4 mt-6 lg:ml-10">
                 <div className="w-8 h-8 bg-white rounded-full flex justify-center items-center cursor-pointer">
                   <Facebook />
                 </div>
@@ -47,48 +47,19 @@ const Footer = () => {
                 <Link href="/products" className="text-sm  text-white mb-2">
                   Products
                 </Link>
-                <Link href="/" className="text-sm  text-white mb-2">
+                <Link href="/about-us" className="text-sm  text-white mb-2">
                   About Us
                 </Link>
-                <Link href="/about-us" className="text-sm  text-white mb-2">
+                <Link href="#contact-us" className="text-sm  text-white mb-2">
                   Contact Us
+                </Link>
+                <Link href="/terms" className="text-sm  text-white mb-2">
+                  Terms and Conditions
                 </Link>
               </div>
             </div>
-            {/* our company */}
-            {/* <div>
-              <h4 className="text-lg font-bold text-white  pb-4">
-                Additional Information
-              </h4>
-              <hr className="w-12 text-white" />
-              <div className="mt-6 flex flex-col">
-                <Link
-                  href="/"
-                  className="text-sm  text-white mb-2 tracking-wide"
-                >
-                  Delivery
-                </Link>
-                <Link
-                  href="/"
-                  className="text-sm  text-white mb-2 tracking-wide"
-                >
-                  Legal Notice
-                </Link>
-                <Link
-                  href="/"
-                  className="text-sm  text-white mb-2 text-balance tracking-wide"
-                >
-                  Terms and conditions of us
-                </Link>
-                <Link
-                  href="/"
-                  className="text-sm  text-white mb-2 tracking-wide"
-                >
-                  Affiliate
-                </Link>
-              </div>
-            </div> */}
-            {/* About Our Shrefre */}
+
+            {/* About Our company */}
             <div>
               <h4 className="text-lg font-bold text-white  pb-4">
                 About Our Company

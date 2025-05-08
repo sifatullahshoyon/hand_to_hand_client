@@ -75,8 +75,8 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center shadow-none overflow-hidden rounded">
-      <Card className="md:w-4/5 h-full mx-auto flex flex-col justify-center shadow-none overflow-hidden rounded border-none">
+    <>
+      <Card className="w-full h-full mx-auto flex flex-col justify-center shadow-none overflow-hidden rounded border-none">
         <CardHeader>
           <CardDescription className=" text-[#1A1A1A] text-xl text-center font-bold">
             Sign Up to <span className="text-purple-500 ">Hand To Hand</span>
@@ -225,7 +225,7 @@ const RegistrationForm = () => {
           </p>
         </CardContent>
       </Card>
-    </div>
+    </>
   );
 };
 

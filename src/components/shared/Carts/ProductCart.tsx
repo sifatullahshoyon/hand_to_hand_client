@@ -56,7 +56,7 @@ const ProductCart = ({ item }: { item: IListing }) => {
   };
 
   return (
-    <Card className="p-4 text-center relative bg-white border-none group hover:shadow-xl transition-all">
+    <Card className="p-4 text-center relative bg-white border-none group hover:shadow-xl transition-all w-full">
       {pathName !== "/products" ? (
         <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
           Buy

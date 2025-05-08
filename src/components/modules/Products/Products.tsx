@@ -255,9 +255,9 @@ const Products = ({ products }: ProductsProps) => {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-8 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-8 gap-6">
             {/* 🔘 Filter Sidebar */}
-            <div className="col-span-2 bg-gray-50 shadow rounded p-6 h-[80%]">
+            <div className="md:col-span-2 lg:col-span-2 bg-gray-50 shadow rounded p-6 h-auto md:sticky md:top-0">
               <div className="flex flex-row justify-between items-center flex-wrap gap-2 space-y-2 lg:space-y-0 mb-6">
                 <Button className="flex items-center gap-2 text-xl font-bold px-4">
                   <FilterIcon size={25} />
@@ -288,7 +288,7 @@ const Products = ({ products }: ProductsProps) => {
             </div>
 
             {/* 🛒 Product Listing */}
-            <div className="col-span-6 p-6">
+            <div className="md:col-span-4 lg:col-span-6 ">
               <div className="flex justify-between items-center gap-2 flex-wrap mb-6">
                 <p className="font-bold text-xl text-[#1A1A1A] tracking-wide">
                   {filteredProducts.length} Products
@@ -298,7 +298,7 @@ const Products = ({ products }: ProductsProps) => {
 
               <div data-aos="fade-left" className="pb-6">
                 {filteredProducts.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
                     {filteredProducts.map((item) => (
                       <ProductCart key={item._id} item={item} />
                     ))}
