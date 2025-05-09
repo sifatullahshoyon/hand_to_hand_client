@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import aboutUs from "../../assets/img/banner/about-us.jpg";
 import team from "../../assets/img/team.png";
+import TeamSection from "@/components/modules/team-section";
 
 const AboutUsPage = () => {
   return (
@@ -104,6 +105,7 @@ const AboutUsPage = () => {
           </div>
         </div>
         {/* End Our Goal */}
+        <TeamSection />
       </Container>
     </>
   );
