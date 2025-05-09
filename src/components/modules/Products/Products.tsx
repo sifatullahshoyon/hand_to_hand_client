@@ -208,7 +208,6 @@ const Products = ({ products }: ProductsProps) => {
       return matchName && matchAvailability && matchPrice;
     });
 
-    console.log("Filtered Products:", result); // Debugging: Log filtered products
     return result;
   }, [products, searchTerm, availability, priceRange, isFilterApplied]);
 

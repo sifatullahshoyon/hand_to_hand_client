@@ -1,0 +1,541 @@
+{
+  "products": [
+    {
+      "name": "Apple iPhone 13",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The Apple iPhone 13 offers a powerful A15 Bionic chip, Super Retina XDR display, and a sleek design.",
+      "images": [
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681380116022.webp"
+      ],
+      "options": [
+        {
+          "color": "Red",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "85%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "3 Months Seller Warranty"
+          },
+          "price": 62999,
+          "stock": 4,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        },
+        {
+          "color": "Red",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 78999,
+          "stock": 7,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 13" },
+            { "label": "Released", "value": "September 2021" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE10", "IPHONE2024"]
+    },
+    {
+      "id": "iphone-12-blue",
+      "name": "Apple iPhone 12",
+      "brand": "Apple",
+      "model": "iPhone 12",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The iPhone 12 features a Super Retina XDR display, Ceramic Shield, and A14 Bionic chip.",
+      "images": [
+        "/images/iphone12/front.jpg",
+        "/images/iphone12/back.jpg",
+        "/images/iphone12/side.jpg"
+      ],
+      "options": [
+        {
+          "color": "Blue",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "90%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "2 Months Seller Warranty"
+          },
+          "price": 49999,
+          "stock": 5,
+          "images": [
+            "/images/iphone12/blue/front.jpg",
+            "/images/iphone12/blue/back.jpg"
+          ]
+        },
+        {
+          "color": "Blue",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 64999,
+          "stock": 6,
+          "images": [
+            "/images/iphone12/blue/dual/front.jpg",
+            "/images/iphone12/blue/dual/back.jpg"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 12" },
+            { "label": "Released", "value": "October 2020" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE5", "IPHONE2024"]
+    },
+    {
+      "name": "Apple iPhone 13",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The Apple iPhone 13 offers a powerful A15 Bionic chip, Super Retina XDR display, and a sleek design.",
+      "images": [
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681380116022.webp"
+      ],
+      "options": [
+        {
+          "color": "Red",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "85%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "3 Months Seller Warranty"
+          },
+          "price": 62999,
+          "stock": 4,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        },
+        {
+          "color": "Red",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 78999,
+          "stock": 7,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 13" },
+            { "label": "Released", "value": "September 2021" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE10", "IPHONE2024"]
+    },
+    {
+      "name": "Apple iPhone 12",
+      "brand": "Apple",
+      "model": "iPhone 12",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The iPhone 12 features a Super Retina XDR display, Ceramic Shield, and A14 Bionic chip.",
+      "images": [
+        "/images/iphone12/front.jpg",
+        "/images/iphone12/back.jpg",
+        "/images/iphone12/side.jpg"
+      ],
+      "options": [
+        {
+          "color": "Blue",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "90%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "2 Months Seller Warranty"
+          },
+          "price": 49999,
+          "stock": 5,
+          "images": [
+            "/images/iphone12/blue/front.jpg",
+            "/images/iphone12/blue/back.jpg"
+          ]
+        },
+        {
+          "color": "Blue",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 64999,
+          "stock": 6,
+          "images": [
+            "/images/iphone12/blue/dual/front.jpg",
+            "/images/iphone12/blue/dual/back.jpg"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 12" },
+            { "label": "Released", "value": "October 2020" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE5", "IPHONE2024"]
+    },
+    {
+      "name": "Apple iPhone 13",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The Apple iPhone 13 offers a powerful A15 Bionic chip, Super Retina XDR display, and a sleek design.",
+      "images": [
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681380116022.webp"
+      ],
+      "options": [
+        {
+          "color": "Red",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "85%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "3 Months Seller Warranty"
+          },
+          "price": 62999,
+          "stock": 4,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        },
+        {
+          "color": "Red",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 78999,
+          "stock": 7,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 13" },
+            { "label": "Released", "value": "September 2021" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE10", "IPHONE2024"]
+    },
+    {
+      "name": "Apple iPhone 12",
+      "brand": "Apple",
+      "model": "iPhone 12",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The iPhone 12 features a Super Retina XDR display, Ceramic Shield, and A14 Bionic chip.",
+      "images": [
+        "/images/iphone12/front.jpg",
+        "/images/iphone12/back.jpg",
+        "/images/iphone12/side.jpg"
+      ],
+      "options": [
+        {
+          "color": "Blue",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "90%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "2 Months Seller Warranty"
+          },
+          "price": 49999,
+          "stock": 5,
+          "images": [
+            "/images/iphone12/blue/front.jpg",
+            "/images/iphone12/blue/back.jpg"
+          ]
+        },
+        {
+          "color": "Blue",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 64999,
+          "stock": 6,
+          "images": [
+            "/images/iphone12/blue/dual/front.jpg",
+            "/images/iphone12/blue/dual/back.jpg"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 12" },
+            { "label": "Released", "value": "October 2020" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE5", "IPHONE2024"]
+    },
+    {
+      "name": "Apple iPhone 13",
+      "brand": "Apple",
+      "model": "iPhone 13",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The Apple iPhone 13 offers a powerful A15 Bionic chip, Super Retina XDR display, and a sleek design.",
+      "images": [
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp",
+        "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681380116022.webp"
+      ],
+      "options": [
+        {
+          "color": "Red",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "85%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "3 Months Seller Warranty"
+          },
+          "price": 62999,
+          "stock": 4,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        },
+        {
+          "color": "Red",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 78999,
+          "stock": 7,
+          "images": [
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/17439239681158203183.webp",
+            "https://dkn54n3f2em71.cloudfront.net/inventory-product-unit/1743923968760433046.webp"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 13" },
+            { "label": "Released", "value": "September 2021" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE10", "IPHONE2024"]
+    },
+    {
+      "name": "Apple iPhone 12",
+      "brand": "Apple",
+      "model": "iPhone 12",
+      "category": "mobiles",
+      "status": "available",
+      "availability": "in stock",
+      "description": "The iPhone 12 features a Super Retina XDR display, Ceramic Shield, and A14 Bionic chip.",
+      "images": [
+        "/images/iphone12/front.jpg",
+        "/images/iphone12/back.jpg",
+        "/images/iphone12/side.jpg"
+      ],
+      "options": [
+        {
+          "color": "Blue",
+          "simVariation": "Single SIM",
+          "condition": "gentlyUsed",
+          "unitCondition": {
+            "batteryHealth": "90%",
+            "scratches": "Minor Scratches",
+            "warrantyStatus": "2 Months Seller Warranty"
+          },
+          "price": 49999,
+          "stock": 5,
+          "images": [
+            "/images/iphone12/blue/front.jpg",
+            "/images/iphone12/blue/back.jpg"
+          ]
+        },
+        {
+          "color": "Blue",
+          "simVariation": "Dual SIM",
+          "condition": "brandNew",
+          "unitCondition": {
+            "batteryHealth": "100%",
+            "scratches": "Brand New",
+            "warrantyStatus": "1 Year Official Warranty"
+          },
+          "price": 64999,
+          "stock": 6,
+          "images": [
+            "/images/iphone12/blue/dual/front.jpg",
+            "/images/iphone12/blue/dual/back.jpg"
+          ]
+        }
+      ],
+      "specifications": [
+        {
+          "category": "General",
+          "specs": [
+            { "label": "Model", "value": "Apple iPhone 12" },
+            { "label": "Released", "value": "October 2020" },
+            { "label": "Status", "value": "Available" }
+          ]
+        },
+        {
+          "category": "Display",
+          "specs": [
+            { "label": "Type", "value": "Super Retina XDR OLED" },
+            { "label": "Size", "value": "6.1 inches" },
+            { "label": "Resolution", "value": "1170 x 2532 pixels" }
+          ]
+        }
+      ],
+      "couponCodes": ["SAVE5", "IPHONE2024"]
+    }
+  ]
+}
